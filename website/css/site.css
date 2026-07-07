@@ -337,8 +337,18 @@ p { margin: 0; }
 @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } .ticker-track { animation: none; } }
 
 /* ---- Page hero (interior pages) --------------------------------------- */
-.page-hero { background: var(--navy); color: #F3EFE4; position: relative; overflow: hidden; }
-.page-hero .ghost-mark { position: absolute; right: -120px; top: -40px; height: 420px; opacity: 0.06; }
+.page-hero { background: var(--navy); color: #F3EFE4; position: relative; overflow: hidden;
+  min-height: calc(100vh - 74px); display: flex; flex-direction: column; justify-content: center; }
+.page-hero .ghost-mark { position: absolute; right: auto; left: 50%; top: 50%;
+  transform: translate(-50%, -50%); height: min(560px, 66vh); opacity: 0.06; }
+.hero-arrow { position: absolute; left: 50%; bottom: 30px; transform: translateX(-50%); z-index: 6;
+  width: 54px; height: 54px; border-radius: 50%; border: 2px solid rgba(243,239,228,0.5);
+  background: transparent; color: #F3EFE4; display: grid; place-items: center; cursor: pointer;
+  transition: background .18s ease, color .18s ease, border-color .18s ease; animation: hero-bob 2.1s ease infinite; }
+.hero-arrow svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.hero-arrow:hover { background: #F3EFE4; color: var(--navy); border-color: #F3EFE4; }
+@keyframes hero-bob { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
+@media (prefers-reduced-motion: reduce) { .hero-arrow { animation: none; } }
 .page-hero-inner { max-width: var(--max); margin: 0 auto; padding: 84px 28px 88px; position: relative; }
 .page-hero h1 { color: #F3EFE4; font-size: clamp(40px, 5.4vw, 66px); line-height: 1.05; max-width: 17ch; margin-top: 18px; }
 .page-hero p { color: var(--navy-100); font-size: 20px; max-width: 620px; margin-top: 22px; }

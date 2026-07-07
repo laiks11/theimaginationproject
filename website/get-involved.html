@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Get Involved · The Imagination Project</title>
+<meta name="description" content="Become a mentor, mentee, volunteer, speaker, or partner, or start a chapter of The Imagination Project." />
+<link rel="icon" type="image/png" href="assets/logo-mark-brand.png" />
+<link rel="stylesheet" href="css/tip.css" />
+<style>
+  .roles{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:52px;}
+  .rc{display:flex;flex-direction:column;gap:12px;border:1px solid var(--line);border-radius:20px;padding:24px;background:var(--card);transition:transform .18s var(--ease),box-shadow .18s var(--ease);}
+  .rc:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+  .rc h3{font-size:19px;}
+  .rc p{color:var(--ink-soft);font-size:14px;}
+  .rc .go{margin-top:auto;font-family:'Space Grotesk';font-weight:600;font-size:13px;color:var(--brand);}
+  .role{scroll-margin-top:96px;border-top:1px solid var(--line);padding-top:60px;margin-top:60px;text-align:center;}
+  .role:first-of-type{border-top:none;padding-top:0;margin-top:0;}
+  .rhead{display:flex;gap:16px;align-items:center;justify-content:center;margin-bottom:10px;}
+  .rhead h2{font-size:clamp(26px,3.2vw,36px);}
+  .role>.sub{color:var(--ink-soft);font-size:17px;max-width:60ch;margin:0 auto 30px;}
+  .form{display:grid;gap:16px;max-width:660px;margin:0 auto;text-align:left;}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .field{display:flex;flex-direction:column;gap:7px;}
+  .field label{font-family:'Space Grotesk';font-weight:600;font-size:13px;color:var(--ink);}
+  .field input,.field select,.field textarea{font-family:'Hanken Grotesk';font-size:15px;padding:12px 14px;border:1.5px solid var(--line-strong);border-radius:12px;background:#fff;color:var(--ink);width:100%;}
+  .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--brand);}
+  .field textarea{min-height:110px;resize:vertical;}
+  .checks{display:flex;gap:18px;flex-wrap:wrap;padding-top:4px;}
+  .check{display:flex;gap:8px;align-items:center;font-size:14.5px;color:var(--ink-soft);}
+  .check input{width:17px;height:17px;accent-color:var(--brand);}
+  .form .done{display:none;background:var(--mint);color:var(--mint-ink);border-radius:12px;padding:14px 16px;font-family:'Space Grotesk';font-weight:600;font-size:14px;}
+  .form.sent .done{display:block;}
+  .form.sent .field,.form.sent .row2,.form.sent .checks,.form.sent button{display:none;}
+  @media(max-width:760px){.roles{grid-template-columns:1fr;}.row2{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <nav class="nav-left">
+      <a class="navlink" href="programs.html">Programs</a>
+      <a class="navlink" href="impact.html">Impact</a>
+      <a class="navlink" href="policy.html">Policy</a>
+      <a class="navlink" href="about.html">About</a>
+    </nav>
+    <a class="nav-logo" href="index.html" aria-label="The Imagination Project home">
+      <img src="assets/logo-mark-brand.png" alt="The Imagination Project" />
+      <span class="wm">The Imagination Project</span>
+    </a>
+    <div class="nav-right">
+      <div class="has-menu">
+        <a class="navlink active" href="get-involved.html">Get Involved</a>
+        <div class="menu">
+          <a href="#mentee"><span class="mi ic-brand"><svg viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 2.5 3 6 3s6-2 6-3v-5"/></svg></span><span><span class="mt">Become a mentee</span><span class="md">Students join a cohort</span></span></a>
+          <a href="#mentor"><span class="mi ic-violet"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg></span><span><span class="mt">Become a mentor</span><span class="md">Guide a young person</span></span></a>
+          <a href="#volunteer"><span class="mi ic-mint"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 1 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></span><span><span class="mt">Volunteer</span><span class="md">Help run our events</span></span></a>
+          <a href="#chapter"><span class="mi ic-brand"><svg viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></span><span><span class="mt">Start a chapter</span><span class="md">Lead TIP at your school</span></span></a>
+          <a href="#speaker"><span class="mi ic-butter"><svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></svg></span><span><span class="mt">Speak to teens</span><span class="md">Donate an hour</span></span></a>
+          <a href="#partner"><span class="mi ic-violet"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span><span><span class="mt">Partner with us</span><span class="md">Companies &amp; schools</span></span></a>
+        </div>
+      </div>
+      <a class="btn btn-ghost btn-sm" href="#chapter">Start a chapter</a>
+      <a class="btn btn-brand btn-sm" href="index.html#donate">Donate</a>
+    </div>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="wrap">
+    <span class="eyebrow on-dark">Get involved</span>
+    <h1>Find your way in.</h1>
+    <p>There is a role here whether you are a student, a professional, a leader with an hour to give, or a whole organization. Pick the one that fits and tell us about yourself.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-bottom:40px;">
+  <div class="wrap">
+    <div class="roles">
+      <a class="rc" href="#mentee"><span class="ic ic-brand"><svg viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 2.5 3 6 3s6-2 6-3v-5"/></svg></span><h3>Become a mentee</h3><p>Students: join a cohort and meet real leaders.</p><span class="go">Apply →</span></a>
+      <a class="rc" href="#mentor"><span class="ic ic-violet"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg></span><h3>Become a mentor</h3><p>Guide a young person in your own field.</p><span class="go">Sign up →</span></a>
+      <a class="rc" href="#volunteer"><span class="ic ic-mint"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 1 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></span><h3>Volunteer</h3><p>Help run the 5Ks, forums, and fundraisers.</p><span class="go">Get started →</span></a>
+      <a class="rc" href="#chapter"><span class="ic ic-brand"><svg viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></span><h3>Start a chapter</h3><p>Bring TIP to your school and lead it.</p><span class="go">Apply →</span></a>
+      <a class="rc" href="#speaker"><span class="ic ic-butter"><svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></svg></span><h3>Speak to teens</h3><p>Leaders: donate an hour at a seminar.</p><span class="go">Offer a talk →</span></a>
+      <a class="rc" href="#partner"><span class="ic ic-violet"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span><h3>Partner with us</h3><p>Companies, schools, and think tanks.</p><span class="go">Start a conversation →</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:20px;">
+  <div class="wrap">
+
+    <!-- MENTEE -->
+    <div class="role" id="mentee">
+      <div class="rhead"><span class="ic ic-brand"><svg viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 2.5 3 6 3s6-2 6-3v-5"/></svg></span><h2>Become a mentee</h2></div>
+      <p class="sub">For students ages 4 to 18 who want to join a cohort, sharpen how they think, and meet leaders across fields.</p>
+      <form class="form" data-role-form>
+        <div class="done">Thanks! Your application is in. We will be in touch at the email you gave us.</div>
+        <div class="row2">
+          <div class="field"><label>Full name</label><input required type="text" /></div>
+          <div class="field"><label>Email</label><input required type="email" /></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label>Grade / age</label><input required type="text" placeholder="e.g. 9th grade, 14" /></div>
+          <div class="field"><label>School</label><input type="text" /></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label>City &amp; state</label><input type="text" placeholder="Austin, TX" /></div>
+          <div class="field"><label>Sector you're curious about</label>
+            <select><option>Tech &amp; cyber policy</option><option>Medicine &amp; health</option><option>Business</option><option>Service</option><option>Arts</option><option>Not sure yet</option></select>
+          </div>
+        </div>
+        <div class="field"><label>Why do you want to join?</label><textarea placeholder="A few sentences is plenty."></textarea></div>
+        <button class="btn btn-brand" type="submit">Submit application</button>
+      </form>
+    </div>
+
+    <!-- MENTOR -->
+    <div class="role" id="mentor">
+      <div class="rhead"><span class="ic ic-violet"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg></span><h2>Become a mentor</h2></div>
+      <p class="sub">For professionals and older students who want to guide a young person in their field. New mentors are welcomed every month.</p>
+      <form class="form" data-role-form>
+        <div class="done">Thanks for offering your time. We will reach out about the next mentor cohort.</div>
+        <div class="row2">
+          <div class="field"><label>Full name</label><input required type="text" /></div>
+          <div class="field"><label>Email</label><input required type="email" /></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label>Field / industry</label><input required type="text" placeholder="e.g. cybersecurity, medicine" /></div>
+          <div class="field"><label>Role &amp; organization</label><input type="text" /></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label>Availability</label>
+            <select><option>A few hours a month</option><option>Weekly</option><option>One-off sessions</option><option>Flexible</option></select>
+          </div>
+          <div class="field"><label>LinkedIn (optional)</label><input type="url" placeholder="https://" /></div>
+        </div>
+        <div class="field"><label>Anything you'd love to share with students?</label><textarea></textarea></div>
+        <button class="btn btn-brand" type="submit">Sign up to mentor</button>
+      </form>
+    </div>
+
+    <!-- VOLUNTEER -->
+    <div class="role" id="volunteer">
+      <div class="rhead"><span class="ic ic-mint"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 1 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></span><h2>Volunteer</h2></div>
+      <p class="sub">Help us pull off the events that fund and grow the work, from 5Ks and bake sales to forums and conferences.</p>
+      <form class="form" data-role-form>
+        <div class="done">Amazing. We will email you when the next volunteer opportunity comes up.</div>
+        <div class="row2">
+          <div class="field"><label>Full name</label><input required type="text" /></div>
+          <div class="field"><label>Email</label><input required type="email" /></div>
+        </div>
+        <div class="field"><label>City &amp; state</label><input type="text" placeholder="Austin, TX" /></div>
+        <div class="field"><label>What would you like to help with?</label>
+          <div class="checks">
+            <label class="check"><input type="checkbox" />Events</label>
+            <label class="check"><input type="checkbox" />Fundraising</label>
+            <label class="check"><input type="checkbox" />Outreach</label>
+            <label class="check"><input type="checkbox" />Content &amp; design</label>
+          </div>
+        </div>
+        <div class="field"><label>Anything else?</label><textarea></textarea></div>
+        <button class="btn btn-brand" type="submit">Count me in</button>
+      </form>
+    </div>
+
+    <!-- CHAPTER -->
+    <div class="role" id="chapter">
+      <div class="rhead"><span class="ic ic-brand"><svg viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></span><h2>Start a chapter</h2></div>
+      <p class="sub">Our most impactful role. Bring The Imagination Project to your school and lead it, with our playbook, materials, and a mentor behind you.</p>
+      <form class="form" data-role-form>
+        <div class="done">Exciting! We will send you the chapter kit details and next steps shortly.</div>
+        <div class="row2">
+          <div class="field"><label>Full name</label><input required type="text" /></div>
+          <div class="field"><label>Email</label><input required type="email" /></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label>School</label><input required type="text" /></div>
+          <div class="field"><label>Grade</label><input type="text" /></div>
+        </div>
+        <div class="field"><label>City &amp; state</label><input type="text" placeholder="Austin, TX" /></div>
+        <div class="field"><label>Why do you want to start a chapter?</label><textarea placeholder="No experience needed, just tell us what's driving you."></textarea></div>
+        <button class="btn btn-brand" type="submit">Apply to start a chapter</button>
+      </form>
+    </div>
+
+    <!-- SPEAKER -->
+    <div class="role" id="speaker">
+      <div class="rhead"><span class="ic ic-butter"><svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></span><h2>Speak to teens</h2></div>
+      <p class="sub">For leaders and practitioners willing to donate an hour at a seminar, a forum, or a recorded conversation.</p>
+      <form class="form" data-role-form>
+        <div class="done">Thank you. Our team will follow up to find a great fit and date.</div>
+        <div class="row2">
+          <div class="field"><label>Full name</label><input required type="text" /></div>
+          <div class="field"><label>Email</label><input required type="email" /></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label>Title &amp; organization</label><input required type="text" /></div>
+          <div class="field"><label>Format</label>
+            <select><option>Panel</option><option>Speaker seminar</option><option>Recorded interview</option><option>Open to any</option></select>
+          </div>
+        </div>
+        <div class="field"><label>What would you speak about?</label><input type="text" placeholder="Topic or area of expertise" /></div>
+        <div class="field"><label>Anything we should know?</label><textarea></textarea></div>
+        <button class="btn btn-brand" type="submit">Offer a talk</button>
+      </form>
+    </div>
+
+    <!-- PARTNER -->
+    <div class="role" id="partner">
+      <div class="rhead"><span class="ic ic-violet"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span><h2>Partner with us</h2></div>
+      <p class="sub">For companies, schools, design programs, and think tanks who want to build the next sector or event with us.</p>
+      <form class="form" data-role-form>
+        <div class="done">Thanks! We will be in touch to explore how we can work together.</div>
+        <div class="row2">
+          <div class="field"><label>Organization</label><input required type="text" /></div>
+          <div class="field"><label>Your name</label><input required type="text" /></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label>Email</label><input required type="email" /></div>
+          <div class="field"><label>Partnership type</label>
+            <select><option>Corporate sponsor</option><option>School or district</option><option>University / design school</option><option>Think tank</option><option>Other</option></select>
+          </div>
+        </div>
+        <div class="field"><label>What do you have in mind?</label><textarea></textarea></div>
+        <button class="btn btn-brand" type="submit">Start a conversation</button>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Prefer to just say hello?</h2>
+    <p>Email us any time and a real person will write back.</p>
+    <div class="row"><a class="btn btn-white" href="mailto:contact@theimaginationproject.org">contact@theimaginationproject.org</a></div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a class="fl" href="index.html"><img src="assets/logo-mark-brand.png" alt="" /><span class="wm">The Imagination Project</span></a>
+        <p>A youth education nonprofit teaching young people to think for themselves and build something real. Austin, TX.</p>
+      </div>
+      <div class="fcol"><h5>Explore</h5><a href="programs.html">Programs</a><a href="impact.html">Impact</a><a href="policy.html">Policy</a><a href="about.html">About</a><a href="events.html">Events</a></div>
+      <div class="fcol"><h5>Get involved</h5><a href="#chapter">Start a chapter</a><a href="#mentor">Mentor</a><a href="#mentee">Mentee</a><a href="#speaker">Speak to teens</a><a href="#partner">Partner with us</a></div>
+      <div class="fcol">
+        <h5>Stay connected</h5>
+        <a href="https://www.tiktok.com/@tipthinker" target="_blank" rel="noopener">TikTok · @tipthinker</a>
+        <a href="https://theimaginationproject.substack.com" target="_blank" rel="noopener">Substack newsletter</a>
+        <a href="https://www.instagram.com/tipthinker/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.linkedin.com/company/the-imagination-project-foundation" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:contact@theimaginationproject.org">contact@theimaginationproject.org</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 The Imagination Project · A Texas 501(c)(3) nonprofit</span>
+      <div class="socials">
+        <a href="https://www.tiktok.com/@tipthinker" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M16.6 5.82a4.28 4.28 0 0 1-1.05-2.82h-3.2v12.6a2.6 2.6 0 1 1-2.6-2.6c.2 0 .4.03.6.08V7.8a5.8 5.8 0 1 0 5 5.74V8.9a7.3 7.3 0 0 0 4.3 1.38V7.06a4.3 4.3 0 0 1-3.05-1.24z"/></svg></a>
+        <a href="https://theimaginationproject.substack.com" target="_blank" rel="noopener" aria-label="Substack"><svg viewBox="0 0 24 24"><path d="M3 4h18v2.6H3zM3 9.2h18v2.6H3zM3 14.4h18V24l-9-5.4L3 24z"/></svg></a>
+        <a href="https://www.instagram.com/tipthinker/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23a3.8 3.8 0 0 1-2.28 2.28c-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.8 3.8 0 0 1-2.28-2.28c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23a3.8 3.8 0 0 1 2.28-2.28c.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 2.7a7.14 7.14 0 1 0 0 14.28 7.14 7.14 0 0 0 0-14.28zm0 2.62a4.52 4.52 0 1 1 0 9.04 4.52 4.52 0 0 1 0-9.04zm5.65-2.7a1.06 1.06 0 1 0 0 2.12 1.06 1.06 0 0 0 0-2.12z"/></svg></a>
+        <a href="https://www.linkedin.com/company/the-imagination-project-foundation" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/tip.js"></script>
+<script>
+  document.querySelectorAll('[data-role-form]').forEach(function(f){
+    f.addEventListener('submit',function(e){e.preventDefault();f.classList.add('sent');});
+  });
+</script>
+</body>
+</html>

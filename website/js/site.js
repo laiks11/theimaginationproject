@@ -71,4 +71,19 @@
     window.addEventListener('resize', setBar);
     setBar();
   }
+
+  // full-bleed hero: scroll-down arrow (ghost watermark already in markup)
+  document.querySelectorAll('.page-hero').forEach(function (hero) {
+    if (hero.querySelector('.hero-arrow')) return;
+    var a = document.createElement('button');
+    a.type = 'button'; a.className = 'hero-arrow'; a.setAttribute('aria-label', 'Scroll to content');
+    a.innerHTML = '<svg viewBox="0 0 24 24"><path d="M5 8.5l7 7 7-7"/></svg>';
+    a.addEventListener('click', function () {
+      var n = hero.nextElementSibling;
+      while (n && n.offsetHeight === 0) n = n.nextElementSibling;
+      var top = n ? n.getBoundingClientRect().top + window.pageYOffset - 70 : hero.offsetHeight;
+      window.scrollTo({ top: top, behavior: 'smooth' });
+    });
+    hero.appendChild(a);
+  });
 })();

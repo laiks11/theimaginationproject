@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ethical Judgment · The Wrong Name | The Imagination Project</title>
+<meta name="description" content="This month's Core Skills Lab challenge: a short ethical dilemma with no easy answer, designed to be argued honestly from more than one point of view. Free, paper-and-pen, in four languages." />
+<link rel="icon" type="image/png" href="assets/logo-mark-navy.png" />
+<link rel="stylesheet" href="css/site.css" />
+<style>
+  /* ===== Core Skills Lab — Ethical Judgment (Issue 01) page ===== */
+
+  /* Issue meta strip under hero */
+  .issue-meta { display: flex; flex-wrap: wrap; gap: 0; margin-top: 30px;
+    border: 1px solid rgba(255,255,255,0.16); border-radius: var(--radius); overflow: hidden; max-width: 760px; }
+  .issue-meta .im { flex: 1 1 0; min-width: 150px; padding: 16px 22px; border-right: 1px solid rgba(255,255,255,0.16); }
+  .issue-meta .im:last-child { border-right: none; }
+  .issue-meta .im .k { font-family: var(--font-sans); font-size: 10.5px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--gold); opacity: 0.9; }
+  .issue-meta .im .v { font-family: var(--font-serif); font-weight: 700; font-size: 17px; color: #F3EFE4; margin-top: 5px; line-height: 1.2; }
+
+  /* The dilemma — the centerpiece */
+  .dilemma-wrap { max-width: 880px; margin: 0 auto; }
+  .dilemma-card { background: var(--white); border: 1px solid var(--border); border-top: 4px solid var(--gold);
+    border-radius: var(--radius); box-shadow: var(--shadow-md); padding: 56px clamp(28px, 5vw, 72px); position: relative; }
+  .dilemma-card .kicker { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; }
+  .dilemma-card .kicker .lab { font-family: var(--font-sans); font-size: 12px; font-weight: 700; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--gold-700); }
+  .dilemma-card .kicker .ln { flex: 1; height: 1px; background: var(--border); }
+  .dilemma-title { font-size: clamp(34px, 4.6vw, 52px); line-height: 1.04; margin-bottom: 26px; }
+  .narrative { font-family: var(--font-serif); font-size: clamp(19px, 2.1vw, 23px); line-height: 1.62; color: var(--ink); }
+  .narrative p { margin-bottom: 20px; }
+  .narrative p:last-child { margin-bottom: 0; }
+  .narrative .dropcap::first-letter { font-family: var(--font-serif); font-weight: 700; font-size: 3.1em;
+    line-height: 0.72; float: left; color: var(--gold-700); padding: 12px 14px 0 0; }
+  .narrative strong { color: var(--navy); }
+  .task { margin-top: 40px; background: var(--paper); border: 1px solid var(--border); border-left: 3px solid var(--gold-600);
+    border-radius: 10px; padding: 26px 30px; }
+  .task .tk { font-family: var(--font-sans); font-size: 11px; font-weight: 700; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--gold-700); }
+  .task p { font-family: var(--font-serif); font-size: 19px; line-height: 1.5; color: var(--navy); margin-top: 10px; }
+
+  /* Two honest sides */
+  .sides { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  .side { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; }
+  .side .val { font-family: var(--font-sans); font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--gold-700); display: flex; align-items: center; gap: 10px; }
+  .side .val::before { content: ""; width: 22px; height: 2px; background: currentColor; }
+  .side h3 { font-size: 25px; margin: 14px 0 12px; line-height: 1.12; }
+  .side p { color: var(--stone); font-size: 16px; line-height: 1.62; }
+  .side .quietly { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border);
+    font-family: var(--font-serif); font-style: italic; color: var(--navy); font-size: 16px; }
+
+  /* Three lenses */
+  .lenses { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid rgba(255,255,255,0.16); }
+  .band-navy .lens { padding: 34px 30px 34px 0; border-right: 1px solid rgba(255,255,255,0.16); }
+  .band-navy .lens:last-child { border-right: none; padding-right: 0; }
+  .lens .ln { font-family: var(--font-serif); font-weight: 700; color: var(--gold); font-size: 15px; }
+  .lens h3 { color: #F3EFE4; font-size: 24px; margin: 12px 0 6px; line-height: 1.12; }
+  .lens .ask { font-family: var(--font-serif); font-style: italic; color: var(--gold); font-size: 17px; margin-bottom: 12px; }
+  .lens p { color: var(--navy-100); font-size: 15px; line-height: 1.6; }
+  .lens .word { display: inline-block; margin-top: 14px; font-family: var(--font-sans); font-size: 11px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); border: 1px solid rgba(255,222,89,0.4);
+    padding: 5px 12px; border-radius: 999px; }
+
+  /* Argue it well — scaffold */
+  .scaffold { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 48px; align-items: start; }
+  .steps { list-style: none; padding: 0; margin: 0; counter-reset: st; }
+  .steps li { position: relative; padding: 0 0 24px 56px; }
+  .steps li:last-child { padding-bottom: 0; }
+  .steps li::before { counter-increment: st; content: counter(st); position: absolute; left: 0; top: -2px;
+    width: 38px; height: 38px; border-radius: 50%; background: var(--navy); color: var(--gold);
+    font-family: var(--font-serif); font-weight: 700; font-size: 17px; display: flex; align-items: center; justify-content: center; }
+  .steps li h4 { font-family: var(--font-serif); color: var(--navy); font-size: 20px; margin: 0 0 5px; }
+  .steps li p { color: var(--stone); font-size: 15.5px; line-height: 1.6; }
+  .starters { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 30px 32px; }
+  .starters .sh { font-family: var(--font-sans); font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--gold-700); margin-bottom: 16px; }
+  .starters ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 13px; }
+  .starters li { font-family: var(--font-serif); font-size: 17px; line-height: 1.45; color: var(--navy);
+    padding-left: 20px; position: relative; }
+  .starters li::before { content: "\201C"; position: absolute; left: 0; top: 2px; color: var(--gold-600);
+    font-family: var(--font-serif); font-size: 22px; line-height: 1; }
+
+  /* Glossary / word bank */
+  .glossary { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 56px; }
+  .glossary dl { margin: 0; }
+  .gterm { padding: 20px 0; border-top: 1px solid var(--border); }
+  .gterm dt { font-family: var(--font-serif); font-weight: 700; font-size: 19px; color: var(--navy); }
+  .gterm dt .pron { font-family: var(--font-sans); font-weight: 500; font-style: italic; font-size: 13px;
+    color: var(--gold-700); margin-left: 8px; letter-spacing: 0.01em; }
+  .gterm dd { margin: 6px 0 0; color: var(--stone); font-size: 15.5px; line-height: 1.55; }
+
+  /* Curriculum weeks */
+  .weeks { border-top: 1px solid var(--border); }
+  .week { display: grid; grid-template-columns: 150px 1fr; gap: 32px; padding: 30px 0; border-bottom: 1px solid var(--border); align-items: start; }
+  .week .wn { font-family: var(--font-sans); font-weight: 700; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-700); }
+  .week .wn .big { display: block; font-family: var(--font-serif); font-size: 30px; color: var(--navy); letter-spacing: -0.01em; margin-top: 6px; text-transform: none; }
+  .week h3 { font-size: 22px; margin-bottom: 8px; }
+  .week p { color: var(--stone); font-size: 16px; max-width: 64ch; }
+  .week .do { margin-top: 10px; font-family: var(--font-sans); font-size: 13px; font-weight: 600; color: var(--navy); }
+  .week .do span { color: var(--gold-700); letter-spacing: 0.08em; text-transform: uppercase; font-size: 11px; margin-right: 8px; }
+
+  /* Reading / videos / sites */
+  .shelves { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .shelf { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 30px; }
+  .shelf > .sh { font-family: var(--font-sans); font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--gold-700); display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
+  .shelf > .sh::before { content: ""; width: 24px; height: 2px; background: currentColor; }
+  .shelf > h3 { font-size: 22px; margin: 0 0 18px; }
+  .shelf .item { padding: 15px 0; border-top: 1px solid var(--border); }
+  .shelf .item:first-of-type { border-top: none; padding-top: 4px; }
+  .shelf .item .band { font-family: var(--font-sans); font-size: 10.5px; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--stone); }
+  .shelf .item .ttl { font-family: var(--font-serif); font-weight: 700; font-size: 16.5px; color: var(--navy); margin: 3px 0 2px; line-height: 1.25; }
+  .shelf .item .by { color: var(--stone); font-size: 14px; line-height: 1.5; }
+  .shelf .item a.ttl:hover { color: var(--gold-700); }
+
+  /* Languages + guide */
+  .guide-split { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+  .guide-card { background: var(--cream); border-radius: var(--radius-lg); padding: 44px; position: relative; overflow: hidden; }
+  .guide-card .ghost { position: absolute; right: -50px; bottom: -50px; height: 230px; opacity: 0.06; pointer-events: none; }
+  .guide-list { list-style: none; padding: 0; margin: 20px 0 26px; display: flex; flex-direction: column; gap: 12px; }
+  .guide-list li { position: relative; padding-left: 30px; color: var(--stone); font-size: 16px; line-height: 1.5; }
+  .guide-list li::before { content: ""; position: absolute; left: 0; top: 8px; width: 14px; height: 8px;
+    border-left: 2px solid var(--gold-600); border-bottom: 2px solid var(--gold-600); transform: rotate(-45deg); }
+
+  /* Action bar */
+  .actionbar { display: flex; gap: 14px; flex-wrap: wrap; }
+
+  @media (max-width: 860px) {
+    .sides, .lenses, .scaffold, .shelves, .glossary, .guide-split { grid-template-columns: 1fr; }
+    .band-navy .lens { border-right: none; padding: 28px 0; border-bottom: 1px solid rgba(255,255,255,0.16); }
+    .scaffold { gap: 32px; }
+    .glossary { gap: 0; }
+    .week { grid-template-columns: 1fr; gap: 10px; }
+  }
+
+  /* ===== Print / Save as PDF ===== */
+  @media print {
+    @page { margin: 18mm 16mm; }
+    .nav, .footer, .cta-band, .scroll-progress, .actionbar, .nav-mobile, .back-link, .guide-card .ghost, .page-hero .ghost-mark, .hero-arrow { display: none !important; }
+    body { background: #fff; color: #1a1a1a; font-size: 12pt; }
+    .reveal { opacity: 1 !important; transform: none !important; }
+    .section { padding: 22px 0 !important; }
+    .wrap { max-width: 100%; padding: 0; }
+    .band-navy, .page-hero { background: #fff !important; color: #111 !important; }
+    .page-hero h1, .band-navy h2, .lens h3, .lens .ln, .lens .ask { color: #0C2F5D !important; }
+    .page-hero .eyebrow, .page-hero p, .band-navy .head p, .lens p { color: #333 !important; }
+    .issue-meta { border-color: #ccc; }
+    .issue-meta .im { border-color: #ccc; }
+    .issue-meta .im .k { color: #8a6d00 !important; }
+    .issue-meta .im .v { color: #111 !important; }
+    .lenses { border-top: 1px solid #ccc; }
+    .band-navy .lens { border-color: #ccc !important; }
+    .lens .word { color: #8a6d00 !important; border-color: #ccc !important; }
+    .dilemma-card, .side, .starters, .shelf, .guide-card { box-shadow: none !important; border: 1px solid #ccc !important; break-inside: avoid; }
+    .dilemma-card { border-top: 4px solid #C99B12 !important; }
+    .sides, .lenses, .scaffold, .shelves, .guide-split { display: block; }
+    .side, .shelf { margin-bottom: 14px; }
+    .section, .dilemma-card, .week, .gterm, .shelf, .side { break-inside: avoid; }
+    h1, h2, h3 { break-after: avoid; }
+    .print-break { break-before: page; }
+    a { color: #0C2F5D !important; text-decoration: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="scroll-progress"></div>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="nav-inner">
+    <nav class="nav-left">
+      <a class="navlink" href="programs.html">Programs</a>
+      <a class="navlink" href="policy.html">Policy</a>
+      <a class="navlink" href="about.html">About us</a>
+    </nav>
+    <a class="nav-logo" href="index.html" aria-label="The Imagination Project, home">
+      <img class="mark" src="assets/logo-mark-navy-flat.png" alt="" />
+      <span class="wordmark">The Imagination Project</span>
+    </a>
+    <div class="nav-right">
+      <a class="nav-text-link" href="materials.html" style="color:var(--gold-700)">Free materials</a>
+      <a class="btn btn-ghost-navy btn-sm" href="https://laikakalyani.substack.com" target="_blank" rel="noopener">Read</a>
+      <a class="btn btn-gold btn-sm" href="index.html#donate">Donate</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    <div class="nav-mobile" id="navMobile">
+      <a class="m-link" href="programs.html">Programs</a>
+      <a class="m-link" href="policy.html">Policy</a>
+      <a class="m-link" href="about.html">About us</a>
+      <a class="m-link" href="materials.html">Free materials</a>
+      <div class="m-buttons">
+        <a class="btn btn-ghost-navy btn-sm" href="https://laikakalyani.substack.com" target="_blank" rel="noopener">Read</a>
+        <a class="btn btn-gold btn-sm" href="index.html#donate">Donate</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <img class="ghost-mark" src="assets/logo-mark-gold.png" alt="" aria-hidden="true" />
+  <div class="page-hero-inner">
+    <a class="back-link" href="materials.html">&larr; Core Skills Lab</a>
+    <span class="eyebrow on-dark" style="margin-top:18px;">Ethical Judgment &middot; Issue 01</span>
+    <h1>The skill of holding two honest answers at once.</h1>
+    <p>This month's challenge is a short dilemma with no easy answer, built to be argued from more than one decent point of view. Below it sits everything you need to think it through on your own: the lenses, the words, a four-week path, and where to read further.</p>
+    <div class="issue-meta">
+      <div class="im"><div class="k">Skill</div><div class="v">Ethical judgment</div></div>
+      <div class="im"><div class="k">Reading level</div><div class="v">Grades 5&ndash;9</div></div>
+      <div class="im"><div class="k">Time</div><div class="v">45&ndash;60 min</div></div>
+      <div class="im"><div class="k">Materials</div><div class="v">Paper &amp; pen</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- THE DILEMMA — the centerpiece -->
+<section class="section band-paper">
+  <div class="wrap">
+    <div class="dilemma-wrap">
+      <div class="dilemma-card reveal">
+        <div class="kicker">
+          <span class="lab">This month's dilemma</span>
+          <span class="ln"></span>
+        </div>
+        <h2 class="dilemma-title">The Wrong Name</h2>
+        <div class="narrative">
+          <p class="dropcap">It happens on a Tuesday, the morning after the history exam. Your best friend leans over at lunch and tells you something quietly, almost relieved to finally say it out loud. They copied half their answers from a sheet they had hidden, and they got an A. You promise not to tell, and you mean it. They are your closest friend, and they trusted you with the truth.</p>
+          <p>Then, in third period, the teacher stops the class. She is certain someone cheated, because the answers were too alike to be chance. And she names a student &mdash; but the wrong one. A quiet kid named Daniel, who studied for a week and copied nothing. He is about to lose his grade, and maybe his place on the team, for something he did not do.</p>
+          <p>You know exactly what happened. You also gave your word. <strong>Say nothing, and an innocent person is punished. Speak up, and you betray the friend who trusted you.</strong> There is no move here that costs nothing &mdash; and that is the point.</p>
+        </div>
+        <div class="task">
+          <div class="tk">Your task</div>
+          <p>Decide what you would honestly do. Then build the strongest, fairest argument you can for the choice you did not make. A real thinker can defend the side they walked away from.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TWO HONEST SIDES -->
+<section class="section">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="section-num">Two honest sides</span>
+      <h2>Neither side is the easy one.</h2>
+      <p>Before you pick, read both cases as if you believed them. A dilemma is only worth the name when each path asks you to give up something real.</p>
+    </div>
+    <div class="sides reveal">
+      <div class="side">
+        <span class="val">Keep your friend's trust</span>
+        <h3>A promise is a promise, and loyalty is not nothing.</h3>
+        <p>Your friend confided in you. If a promise only holds when it is convenient, it was never worth much. Betraying them does real, lasting harm to someone you love &mdash; and it may not even be your secret to tell. There are other ways to help Daniel without naming your friend.</p>
+        <p class="quietly">What kind of friend breaks a confidence the moment it gets hard?</p>
+      </div>
+      <div class="side">
+        <span class="val">Protect the innocent</span>
+        <h3>An innocent person is about to pay for someone else's choice.</h3>
+        <p>Daniel did nothing wrong, and your silence is what convicts him. A promise made to hide the truth cannot outweigh real harm to a person who trusted the system to be fair. Loyalty to one friend does not cancel your duty to everyone else in the room.</p>
+        <p class="quietly">What kind of person lets a stranger take the fall to keep themselves comfortable?</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THREE LENSES -->
+<section class="section band-navy has-wm">
+  <span class="wm" aria-hidden="true">3</span>
+  <div class="wrap">
+    <div class="head reveal" style="max-width:680px;">
+      <span class="eyebrow on-dark">The toolkit</span>
+      <h2>Three lenses for any hard choice.</h2>
+      <p>Philosophers have argued about right and wrong for thousands of years, and most of it comes down to three questions. Try each one on the dilemma and notice how the answer changes.</p>
+    </div>
+    <div class="lenses reveal">
+      <div class="lens">
+        <span class="ln">Lens one</span>
+        <h3>Consequences</h3>
+        <p class="ask">What actually happens to people?</p>
+        <p>Follow each choice to its end. Who is helped, who is hurt, and how much? On this view, the right action is the one that leads to the best overall outcome, even if it is uncomfortable.</p>
+        <span class="word">Consequentialism</span>
+      </div>
+      <div class="lens">
+        <span class="ln">Lens two</span>
+        <h3>Duties</h3>
+        <p class="ask">What is right, no matter the result?</p>
+        <p>Some things hold regardless of outcome: keep your word, tell the truth, do not let the innocent suffer. When two duties collide &mdash; as they do here &mdash; you have to decide which one runs deeper.</p>
+        <span class="word">Deontology</span>
+      </div>
+      <div class="lens">
+        <span class="ln">Lens three</span>
+        <h3>Character</h3>
+        <p class="ask">Who do I become by choosing this?</p>
+        <p>Every choice is also practice. Ask not only what to do, but what kind of person each option makes you &mdash; loyal, brave, honest, cowardly &mdash; and who you want to be when it is over.</p>
+        <span class="word">Virtue ethics</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARGUE IT WELL -->
+<section class="section band-paper">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="section-num">How to argue it well</span>
+      <h2>The goal is not to win. It is to be fair.</h2>
+      <p>Good ethical judgment is not about being the loudest. It is about seeing a problem clearly, treating every side honestly, and being able to say why.</p>
+    </div>
+    <div class="scaffold reveal">
+      <ol class="steps">
+        <li>
+          <h4>Name the stakeholders</h4>
+          <p>List everyone the choice touches &mdash; your friend, Daniel, the teacher, the class, you. A choice that only considers one person is not finished.</p>
+        </li>
+        <li>
+          <h4>Try all three lenses</h4>
+          <p>Run the dilemma through consequences, duties, and character. Write one sentence for each. Notice where they agree and where they pull apart.</p>
+        </li>
+        <li>
+          <h4>Steelman the other side</h4>
+          <p>Build the strongest version of the argument you disagree with &mdash; not a weak one that is easy to knock down. If you cannot, you do not understand it yet.</p>
+        </li>
+        <li>
+          <h4>Take a stand, and own the cost</h4>
+          <p>Choose. Then say plainly what your choice gives up. An honest position names its own price instead of pretending there is none.</p>
+        </li>
+      </ol>
+      <div class="starters">
+        <div class="sh">Sentence starters</div>
+        <ul>
+          <li>The people most affected by this are&hellip;</li>
+          <li>If I only look at the consequences, then&hellip;</li>
+          <li>The duty that matters most here is&hellip; because&hellip;</li>
+          <li>The strongest argument against me is&hellip;</li>
+          <li>I would choose &hellip;, and the price of that choice is&hellip;</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORDS / WORD BANK -->
+<section class="section">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="section-num">Words for your toolkit</span>
+      <h2>The word bank.</h2>
+      <p>Sixteen terms to research and reach for. Use them in your argument, and keep this sheet beside you as you read further.</p>
+    </div>
+    <div class="glossary reveal">
+      <dl>
+        <div class="gterm"><dt>Ethics</dt><dd>Thinking carefully about what is right and wrong, and being able to say why.</dd></div>
+        <div class="gterm"><dt>Moral dilemma</dt><dd>A situation where every choice means giving up something that genuinely matters.</dd></div>
+        <div class="gterm"><dt>Consequentialism</dt><dd>Judging an action by its results: the right choice is the one that leads to the best outcome.</dd></div>
+        <div class="gterm"><dt>Deontology <span class="pron">dee-on-TOL-uh-jee</span></dt><dd>Judging an action by the duty behind it: some things are right or wrong whatever the result.</dd></div>
+        <div class="gterm"><dt>Virtue ethics</dt><dd>Asking not only &ldquo;what should I do?&rdquo; but &ldquo;what kind of person does this make me?&rdquo;</dd></div>
+        <div class="gterm"><dt>Principle</dt><dd>A rule you hold to even when it is hard, like &ldquo;tell the truth&rdquo; or &ldquo;keep your promises.&rdquo;</dd></div>
+        <div class="gterm"><dt>Intuition</dt><dd>The gut sense that something is right or wrong, before you can explain it in words.</dd></div>
+        <div class="gterm"><dt>Stakeholder</dt><dd>Anyone affected by a choice. Here: your friend, Daniel, the teacher, the class, you.</dd></div>
+      </dl>
+      <dl>
+        <div class="gterm"><dt>The golden rule</dt><dd>Treat others the way you would want to be treated if you stood in their place.</dd></div>
+        <div class="gterm"><dt>Veil of ignorance</dt><dd>A test: choose as if you did not yet know which person in the story you would turn out to be.</dd></div>
+        <div class="gterm"><dt>Moral courage</dt><dd>Doing the right thing precisely when it costs you something to do it.</dd></div>
+        <div class="gterm"><dt>Integrity</dt><dd>Living by your values even when no one is watching and no one would know.</dd></div>
+        <div class="gterm"><dt>Justice</dt><dd>Giving each person what they are genuinely owed; fairness, applied without favorites.</dd></div>
+        <div class="gterm"><dt>Loyalty</dt><dd>Standing by the people who have placed their trust in you.</dd></div>
+        <div class="gterm"><dt>Legal vs. ethical</dt><dd>The law says what you must do; ethics asks what you should do. They are not always the same.</dd></div>
+        <div class="gterm"><dt>Steelman</dt><dd>Building the strongest possible version of an argument you disagree with before you answer it.</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- FOUR-WEEK CURRICULUM -->
+<section class="section band-paper">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="section-num">A four-week path</span>
+      <h2>Build the skill, one week at a time.</h2>
+      <p>For students working alone, families at the table, or a teacher with one short session a week. No preparation, no screens required.</p>
+    </div>
+    <div class="weeks reveal">
+      <div class="week">
+        <div class="wn">Week one<span class="big">Notice</span></div>
+        <div>
+          <h3>Tell a dilemma from an easy choice.</h3>
+          <p>Most choices are not dilemmas &mdash; one option is simply better. Collect three situations from your own week and decide which are genuine dilemmas, where every path costs something.</p>
+          <div class="do"><span>Do</span>Read the challenge and write, in one line, what each choice gives up.</div>
+        </div>
+      </div>
+      <div class="week">
+        <div class="wn">Week two<span class="big">Lenses</span></div>
+        <div>
+          <h3>Look through all three.</h3>
+          <p>Take the dilemma and run it through consequences, duties, and character in turn. The point is not to agree with all three, but to see how each one reframes the same facts.</p>
+          <div class="do"><span>Do</span>Write one honest sentence per lens about The Wrong Name.</div>
+        </div>
+      </div>
+      <div class="week">
+        <div class="wn">Week three<span class="big">Steelman</span></div>
+        <div>
+          <h3>Argue the side you disagree with.</h3>
+          <p>Pick the choice you like least and make the best possible case for it. Borrow nobody's strawman. This is the week that separates judgment from opinion.</p>
+          <div class="do"><span>Do</span>Write a short paragraph defending the side you would not choose.</div>
+        </div>
+      </div>
+      <div class="week">
+        <div class="wn">Week four<span class="big">Decide</span></div>
+        <div>
+          <h3>Take a stand and meet the objection.</h3>
+          <p>Now choose, for real, and say why. Then answer the single strongest objection to your view honestly &mdash; without pretending your choice was free of cost.</p>
+          <div class="do"><span>Do</span>Write your position, name its price, and respond to one objection.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- READING / VIDEOS / SITES -->
+<section class="section">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="section-num">Go further</span>
+      <h2>Where to read, watch, and explore.</h2>
+      <p>A short, trustworthy shelf, banded by age. Start where you are and climb when you are ready.</p>
+    </div>
+    <div class="shelves reveal">
+      <div class="shelf">
+        <span class="sh">Reading</span>
+        <h3>Books</h3>
+        <div class="item">
+          <div class="band">Ages 8&ndash;11</div>
+          <div class="ttl">The Sneetches and Other Stories</div>
+          <div class="by">Dr. Seuss &mdash; fairness, belonging, and judging others.</div>
+        </div>
+        <div class="item">
+          <div class="band">Ages 10&ndash;13</div>
+          <div class="ttl">Big Ideas for Curious Minds</div>
+          <div class="by">The School of Life &mdash; an illustrated first philosophy.</div>
+        </div>
+        <div class="item">
+          <div class="band">Ages 12&ndash;16</div>
+          <div class="ttl">The Pig That Wants to Be Eaten</div>
+          <div class="by">Julian Baggini &mdash; 100 short thought experiments.</div>
+        </div>
+        <div class="item">
+          <div class="band">Ages 14&ndash;18</div>
+          <div class="ttl">Justice: What's the Right Thing to Do?</div>
+          <div class="by">Michael Sandel &mdash; the modern classroom classic.</div>
+        </div>
+      </div>
+      <div class="shelf">
+        <span class="sh">Watching</span>
+        <h3>Videos</h3>
+        <div class="item">
+          <div class="band">Ages 11+</div>
+          <a class="ttl" href="https://ed.ted.com/lessons/would-you-sacrifice-one-person-to-save-five-eleanor-nelsen" target="_blank" rel="noopener">Would you sacrifice one person to save five?</a>
+          <div class="by">TED-Ed &mdash; a five-minute tour of the trolley problem.</div>
+        </div>
+        <div class="item">
+          <div class="band">Ages 13+</div>
+          <a class="ttl" href="https://www.youtube.com/playlist?list=PL8dPuuaLjXtNgK6MZucdYldNkMybYIHKR" target="_blank" rel="noopener">Crash Course Philosophy</a>
+          <div class="by">PBS Digital Studios &mdash; the ethics episodes especially.</div>
+        </div>
+        <div class="item">
+          <div class="band">Ages 12+</div>
+          <a class="ttl" href="https://www.wi-phi.com" target="_blank" rel="noopener">Wireless Philosophy (Wi-Phi)</a>
+          <div class="by">Yale &amp; MIT philosophers &mdash; short, free explainers.</div>
+        </div>
+        <div class="item">
+          <div class="band">Ages 15+</div>
+          <a class="ttl" href="https://justiceharvard.org" target="_blank" rel="noopener">Justice with Michael Sandel</a>
+          <div class="by">Harvard's famous lecture course, free online.</div>
+        </div>
+      </div>
+      <div class="shelf">
+        <span class="sh">Exploring</span>
+        <h3>Websites</h3>
+        <div class="item">
+          <div class="band">All ages</div>
+          <a class="ttl" href="https://ethicsunwrapped.utexas.edu" target="_blank" rel="noopener">Ethics Unwrapped</a>
+          <div class="by">UT Austin &mdash; short videos and real-world cases.</div>
+        </div>
+        <div class="item">
+          <div class="band">Ages 10+</div>
+          <a class="ttl" href="https://www.philosophy-foundation.org" target="_blank" rel="noopener">The Philosophy Foundation</a>
+          <div class="by">Discussion questions made for young thinkers.</div>
+        </div>
+        <div class="item">
+          <div class="band">Ages 14+</div>
+          <a class="ttl" href="https://iep.utm.edu" target="_blank" rel="noopener">Internet Encyclopedia of Philosophy</a>
+          <div class="by">Readable, peer-reviewed entries on every term.</div>
+        </div>
+        <div class="item">
+          <div class="band">Advanced</div>
+          <a class="ttl" href="https://plato.stanford.edu" target="_blank" rel="noopener">Stanford Encyclopedia of Philosophy</a>
+          <div class="by">The definitive scholarly reference, free to all.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LANGUAGES + CLASSROOM GUIDE -->
+<section class="section band-paper">
+  <div class="wrap">
+    <div class="guide-split">
+      <div class="reveal">
+        <div class="lux-rule"></div>
+        <h2 style="font-size:clamp(28px,3.6vw,40px);line-height:1.12;">Free, in four languages, and built for the classroom.</h2>
+        <p style="color:var(--stone);font-size:18px;margin-top:18px;">The challenge and this whole briefing are completable with paper and pen, and available in English, Hindi, Spanish, and French, with more languages as the community grows.</p>
+        <div class="lang-chips" style="margin-top:22px;">
+          <span class="lang-chip active">English</span>
+          <span class="lang-chip active">Hindi</span>
+          <span class="lang-chip active">Spanish</span>
+          <span class="lang-chip active">French</span>
+          <span class="lang-chip">More soon</span>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="guide-card">
+          <img class="ghost" src="assets/logo-mark-gold.png" alt="" aria-hidden="true" />
+          <span class="section-num">Classroom guide &middot; Premium</span>
+          <h3 style="font-size:27px;margin:14px 0 4px;">Everything an educator needs to run it.</h3>
+          <ul class="guide-list">
+            <li>Designed, ready-to-copy student worksheets</li>
+            <li>A facilitator script with timing and discussion prompts</li>
+            <li>Sticker sheets and a printable word-bank poster</li>
+            <li>A curated set of vetted YouTube lessons</li>
+          </ul>
+          <p style="color:var(--stone);font-size:14px;margin-bottom:22px;">Purchasing the guide supports educators and keeps the free library free.</p>
+          <a class="btn btn-navy" href="mailto:contact@theimaginationproject.org?subject=Ethical%20Judgment%20classroom%20guide">Request the classroom guide</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOWNLOAD / PRINT CTA -->
+<section class="section">
+  <div class="wrap">
+    <div class="head center reveal" style="margin-bottom:34px;">
+      <span class="section-num" style="display:block;text-align:center;">Take it with you</span>
+      <h2>Work it on paper, anywhere.</h2>
+      <p style="margin-left:auto;margin-right:auto;">Print the challenge and briefing as a clean worksheet, or save it as a PDF to share. No account, no download wall &mdash; it has always been free.</p>
+    </div>
+    <div class="actionbar reveal" style="justify-content:center;">
+      <a class="btn btn-gold" href="javascript:window.print()">Print or save as PDF</a>
+      <a class="btn btn-ghost-navy" href="materials.html">Back to the library</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Bring the Core Skills Lab to your classroom.</h2>
+    <a class="btn btn-navy" href="mailto:contact@theimaginationproject.org">Request the classroom guide</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <img class="footer-mark" src="assets/logo-mark-gold.png" alt="The Imagination Project" />
+        <p class="blurb">Building critical thinking and creative confidence in young people, in support of curiosity, agency, and the freedom to think.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="programs.html">Programs</a></li>
+          <li><a href="policy.html">Policy</a></li>
+          <li><a href="about.html">About us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/tipthinker/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.linkedin.com/company/the-imagination-project-foundation" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://laikakalyani.substack.com" target="_blank" rel="noopener">Substack</a></li>
+          <li><a href="mailto:contact@theimaginationproject.org">contact@theimaginationproject.org</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Stay in the loop</h4>
+        <p class="blurb" style="margin-top:0;">Occasional notes on how young people learn to think. No noise.</p>
+        <form class="news-form" style="margin-top:14px;">
+          <input type="email" placeholder="Your email" aria-label="Your email" required />
+          <button class="btn btn-gold btn-sm" type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 The Imagination Project. A Texas based 501(c)(3) nonprofit in formation.</span>
+      <div class="socials">
+        <a href="https://www.instagram.com/tipthinker/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 1.62c-3.15 0-3.52.01-4.76.07-.9.04-1.39.19-1.71.32-.43.17-.74.37-1.06.69-.32.32-.52.63-.69 1.06-.13.32-.28.81-.32 1.71-.06 1.24-.07 1.61-.07 4.76s.01 3.52.07 4.76c.04.9.19 1.39.32 1.71.17.43.37.74.69 1.06.32.32.63.52 1.06.69.32.13.81.28 1.71.32 1.24.06 1.61.07 4.76.07s3.52-.01 4.76-.07c.9-.04 1.39-.19 1.71-.32.43-.17.74-.37 1.06-.69.32-.32.52-.63.69-1.06.13-.32.28-.81.32-1.71.06-1.24.07-1.61.07-4.76s-.01-3.52-.07-4.76c-.04-.9-.19-1.39-.32-1.71-.17-.43-.37-.74-.69-1.06-.32-.32-.63-.52-1.06-.69-.32-.13-.81-.28-1.71-.32-1.24-.06-1.61-.07-4.76-.07zm0 2.76a5.46 5.46 0 110 10.92 5.46 5.46 0 010-10.92zm0 1.62a3.84 3.84 0 100 7.68 3.84 3.84 0 000-7.68zm5.65-2.91a1.28 1.28 0 110 2.55 1.28 1.28 0 010-2.55z"/></svg></a>
+        <a href="https://www.linkedin.com/company/the-imagination-project-foundation" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
+        <a href="https://laikakalyani.substack.com" target="_blank" rel="noopener" aria-label="Substack"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M1.5 0h21v3.2h-21z"/><path d="M1.5 5.4h21v3.2h-21z"/><path d="M1.5 10.8h21V24l-10.5-6.6L1.5 24z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/site.js"></script>
+</body>
+</html>
