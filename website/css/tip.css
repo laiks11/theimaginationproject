@@ -12,7 +12,7 @@
   --ink:#15243A;
   --ink-soft:#55606F;
   --navy:#0C2F5D;
-  --navy-deep:#8E0F52;
+  --navy-deep:#0A2143;
   --brand:#E01A7A;
   --brand-deep:#B81162;
   --brand-soft:#FCE3F0;
@@ -124,7 +124,7 @@ p{margin:0;}
 
 /* ---------- page hero (interior pages) ---------- */
 .page-hero{background:var(--navy-deep);color:#fff;padding:96px 0;position:relative;overflow:hidden;min-height:calc(100vh - 74px);display:flex;flex-direction:column;justify-content:center;}
-.page-hero::before{content:"";position:absolute;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.16),transparent 70%);top:-160px;right:-100px;}
+.page-hero::before{content:"";position:absolute;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(224,26,122,.30),transparent 70%);top:-160px;right:-100px;}
 .page-hero::after{content:"";position:absolute;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(108,77,255,.28),transparent 70%);bottom:-180px;left:-120px;}
 .page-hero .wrap{position:relative;z-index:2;max-width:880px;}
 .page-hero h1{color:#fff;font-size:clamp(40px,5.6vw,68px);margin-top:18px;}
