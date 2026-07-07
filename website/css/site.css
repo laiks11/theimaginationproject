@@ -336,9 +336,7 @@ p { margin: 0; }
 .reveal.in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } .ticker-track { animation: none; } }
 
-/* ---- Pink retone: flip all dark navy blocks to deep raspberry ---------- */
-.hero, .band-navy, .imagine-divider, .page-hero, .footer { background: #8E0F52 !important; }
-.badge.now, .toc a.active, .lang-chip.active { background: #8E0F52 !important; }
+/* ---- Page hero (interior pages) --------------------------------------- */
 .page-hero { background: var(--navy); color: #F3EFE4; position: relative; overflow: hidden;
               min-height: calc(100vh - 74px); display: flex; flex-direction: column; justify-content: center; }
 .page-hero .ghost-mark { position: absolute; right: auto; left: 50%; top: 50%;
