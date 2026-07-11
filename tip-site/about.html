@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About — The Imagination Project</title>
+<meta name="description" content="Why TIP exists: the problem, our solution, our theory of change, and the people behind it." />
+<link rel="icon" type="image/png" href="assets/logo-teal.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/main.css" />
+<style>
+  .problem{background:var(--teal-ink);color:var(--cream);}
+  .problem .eyebrow{color:var(--gold);}
+  .problem h2{color:var(--cream);}
+  .problem h2 em{color:var(--gold);}
+  .problem .lead{color:rgba(249,247,244,.78);}
+  .problem .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(249,247,244,.16);border:1px solid rgba(249,247,244,.16);margin-top:60px;}
+  .problem .facts div{background:var(--teal-ink);padding:clamp(26px,3vw,44px);}
+  .problem .facts b{font-family:var(--serif);font-size:clamp(24px,2.4vw,34px);font-weight:400;display:block;line-height:1.2;margin-bottom:14px;}
+  .problem .facts b em{font-style:italic;color:var(--gold);}
+  .problem .facts p{font-size:14.5px;color:rgba(249,247,244,.66);text-wrap:pretty;}
+  @media(max-width:960px){.problem .facts{grid-template-columns:1fr;}}
+
+  .values .grid-3{margin-top:10px;}
+  .values .card b{font-family:var(--serif);font-weight:400;font-size:24px;display:block;margin:18px 0 10px;}
+  .values .card .no{font-family:var(--mono);font-size:12px;color:var(--gold-deep);letter-spacing:.12em;}
+  .values .card p{color:var(--ink-soft);font-size:15.5px;text-wrap:pretty;}
+
+  .leaders .person{display:grid;grid-template-columns:minmax(260px,420px) 1fr;gap:clamp(30px,4vw,70px);align-items:center;padding:clamp(50px,6vw,80px) 0;border-top:1px solid var(--line);}
+  .leaders .person:last-child{border-bottom:1px solid var(--line);}
+  .leaders .person.flip{grid-template-columns:1fr minmax(260px,420px);}
+  .leaders .person.flip .photo{order:2;}
+  .leaders .photo{aspect-ratio:4/5;}
+  .leaders h3{font-family:var(--serif);font-size:clamp(30px,3.4vw,46px);}
+  .leaders .role{font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);margin:12px 0 20px;}
+  .leaders p{color:var(--ink-soft);max-width:58ch;text-wrap:pretty;}
+  .leaders p+p{margin-top:14px;}
+  @media(max-width:860px){.leaders .person,.leaders .person.flip{grid-template-columns:1fr;}.leaders .person.flip .photo{order:0;}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="The Imagination Project — home">
+      <img src="assets/logo-teal.png" alt="TIP logo" />
+      <b>The<br /><span>Imagination</span><br />Project</b>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="about.html">About</a>
+      <a href="get-involved.html">Get Involved</a>
+      <div class="nav-drop">
+        <button type="button" aria-haspopup="true">Socials</button>
+        <div class="menu">
+          <a href="https://www.linkedin.com/company/the-imagination-project-foundation" target="_blank" rel="noopener">LinkedIn <span>↗</span></a>
+          <a href="https://www.instagram.com/tipthinker/" target="_blank" rel="noopener">Instagram <span>↗</span></a>
+          <a href="https://theimaginationproject.substack.com/" target="_blank" rel="noopener">Substack <span>↗</span></a>
+        </div>
+      </div>
+    </nav>
+    <button class="burger" type="button" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<aside class="drawer" aria-label="Menu">
+  <p class="d-label">Explore</p>
+  <nav>
+    <a href="programs.html"><i>01</i>Programs</a>
+    <a href="impact.html"><i>02</i>Impact</a>
+    <a href="about.html"><i>03</i>About</a>
+    <a href="get-involved.html"><i>04</i>Get Involved</a>
+  </nav>
+  <div class="d-foot">
+    <a href="https://www.linkedin.com/company/the-imagination-project-foundation" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://www.instagram.com/tipthinker/" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://theimaginationproject.substack.com/" target="_blank" rel="noopener">Substack</a>
+  </div>
+</aside>
+<div class="scrim"></div>
+
+<section class="page-hero" data-screen-label="About hero">
+  <img class="ghost" src="assets/logo-teal.png" alt="" aria-hidden="true" />
+  <div class="wrap">
+    <span class="eyebrow kicker">About · Why TIP</span>
+    <h1 class="reveal-line in"><span>We exist so the future is written in <em>every language.</em></span></h1>
+    <p class="lead">The Imagination Project is a youth-led nonprofit translating AI education for the communities the AI boom left out — and building the skills, research, and rooms where young people shape what technology becomes.</p>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem sec-pad" data-screen-label="The problem">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">The problem</span>
+      <h2 class="sec">AI is moving faster than the people it will <em>change most</em></h2>
+      <p class="lead">The knowledge shaping this decade is concentrated in one language, a handful of institutions, and rooms young people are never invited into.</p>
+    </div>
+    <div class="facts reveal" data-stagger>
+      <div>
+        <b>The divide is <em>linguistic.</em></b>
+        <p>The overwhelming majority of AI education, safety research, and policy debate exists only in English — locking out most of the world's students before they start.</p>
+      </div>
+      <div>
+        <b>The skills are <em>eroding.</em></b>
+        <p>The habits AI most rewards us for outsourcing — critical thinking, writing, judgment, creative struggle — are exactly the ones young people need to govern it.</p>
+      </div>
+      <div>
+        <b>The room is <em>closed.</em></b>
+        <p>Young people will live longest with today's technology decisions, yet have the least say in them. They are treated as an audience, not a stakeholder.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section class="sec-pad" data-screen-label="The solution">
+  <div class="wrap grid-2" style="align-items:start;">
+    <div class="reveal">
+      <span class="eyebrow">The solution</span>
+      <h2 class="sec" style="margin-top:22px;">Translate. Teach. <em>Investigate.</em></h2>
+    </div>
+    <div class="reveal">
+      <p class="lead" style="margin-bottom:26px;">We attack the divide from three sides: student translators carry AI education into 50+ languages, our programs build the skills AI erodes, and our investigative research holds institutions honest about how they actually use AI. An education hub — half-asynchronous, half-live, built around career paths and group projects — is coming soon to tie it all together.</p>
+      <a class="btn" href="programs.html">Explore the programs <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- THEORY -->
+<section class="sec-pad" style="padding-top:0;" data-screen-label="Theory of change">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">How change happens</span>
+      <h2 class="sec">Our theory, <em>summarized</em></h2>
+    </div>
+    <div class="acc reveal">
+      <div class="acc-item">
+        <button type="button"><span class="no">01</span><h3>Theory of change</h3><span class="x"></span></button>
+        <div class="acc-body"><div class="inner">
+          <p><strong>If</strong> young people can access AI education in their own language, <strong>and</strong> practice the human skills AI erodes, <strong>then</strong> they gain real agency over the technology shaping their lives — and institutions begin treating youth as stakeholders in technology governance, not spectators.</p>
+          <p>Access creates literacy. Literacy creates voice. Voice, exercised in public — through translation, research, and real projects — changes who gets to write the future.</p>
+        </div></div>
+      </div>
+      <div class="acc-item">
+        <button type="button"><span class="no">02</span><h3>Theory of action</h3><span class="x"></span></button>
+        <div class="acc-body"><div class="inner">
+          <p><strong>Translate first.</strong> Student translators, earning service hours, carry AI education across the digital divide — to kids, to classrooms, to developing countries.</p>
+          <p><strong>Teach through making.</strong> Programs like Dear Future Leader treat students as authors: group projects, real audiences, skills AI can't replace.</p>
+          <p><strong>Investigate in public.</strong> With data scientists, we're building a precise index of how colleges use and rely on AI — designed to expand across US campuses.</p>
+          <p><strong>Then convene.</strong> The education hub — speakers, podcasts, mentorship, career-path learning — turns a network of programs into a movement.</p>
+        </div></div>
+      </div>
+      <div class="acc-item">
+        <button type="button"><span class="no">03</span><h3>Where this goes</h3><span class="x"></span></button>
+        <div class="acc-body"><div class="inner">
+          <p>By 2030: AI education available in the world's major languages; an AI index trusted across US colleges; a hub where a student in any country can find a mentor, a cohort, and a career path — and TIP alumni sitting in the rooms where technology decisions get made.</p>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values sec-pad" style="background:var(--teal-tint);" data-screen-label="Values">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Values</span>
+      <h2 class="sec">What we <em>refuse to compromise</em></h2>
+    </div>
+    <div class="grid-3 reveal" data-stagger>
+      <div class="card"><span class="no">V.01</span><b>Access is non-negotiable</b><p>If it isn't translated, it isn't finished. Language should never be the price of admission to the future.</p></div>
+      <div class="card"><span class="no">V.02</span><b>Youth are stakeholders</b><p>Not an audience, not a photo op. Young people belong in the rooms where technology is governed.</p></div>
+      <div class="card"><span class="no">V.03</span><b>Imagination is a skill</b><p>Creativity, judgment, and critical thought are trainable — and they are exactly what AI cannot replace.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERSHIP -->
+<section class="leaders sec-pad" data-screen-label="Leadership">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Leadership</span>
+      <h2 class="sec">The people <em>behind it</em></h2>
+    </div>
+
+    <div class="person reveal">
+      <div class="photo"><img src="assets/laika-portrait.png" alt="Laika Kalyani Patel" /><span class="cap">Founder</span></div>
+      <div>
+        <h3>Laika Kalyani Patel</h3>
+        <p class="role">Founder · Yale University</p>
+        <p>Laika founded The Imagination Project in 2025 — the same month she was crowned Miss Texas Teen USA. Within four months she had written and delivered the Dear Future Leader curriculum to more than five hundred elementary students across Texas, and the accompanying children's book now funds literacy and hygiene programs for over eight hundred women served by Manav Sadhna in Ahmedabad, India.</p>
+        <p>A former President of Texas DECA, she brings experience across business, cultural exchange, service, and the arts. She is currently a freshman at Yale University.</p>
+      </div>
+    </div>
+
+    <div class="person flip reveal">
+      <div class="photo"><img src="assets/anabella-portrait.png" alt="Anabella Laudicina" /><span class="cap">Executive Director</span></div>
+      <div>
+        <h3>Anabella Laudicina</h3>
+        <p class="role">Executive Director · Texas A&amp;M University</p>
+        <p>Growing up in a half-Vietnamese, half-Italian household, Anabella developed a deep appreciation for tradition — and for what's lost when cultures are left out of the conversation. She joined The Imagination Project in 2026, bringing experience across the arts and medicine.</p>
+        <p>She founded a local Leo Club chapter that scaled across Austin, and is now a neuroscience major at Texas A&amp;M University.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band" data-screen-label="CTA">
+  <img class="ghost" src="assets/logo-cream.png" alt="" aria-hidden="true" />
+  <div class="wrap">
+    <span class="eyebrow no-rule" style="color:var(--gold);">Partners &amp; press</span>
+    <h2>Put us <em>in the room.</em></h2>
+    <p>Companies, districts, researchers, journalists — if you're deciding how AI meets young people, we should talk.</p>
+    <a class="btn btn-light" href="get-involved.html#partner">Partner with TIP <span class="arr">→</span></a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fmark" aria-hidden="true">Imagine Better<i>✳</i></div>
+    <div class="top">
+      <div class="fbrand">
+        <img src="assets/logo-gold.png" alt="TIP logo" />
+        <p>Equitable access to AI education — and youth agency in technology governance, globally.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="programs.html">Programs</a></li>
+          <li><a href="impact.html">Impact</a></li>
+          <li><a href="get-involved.html">Get Involved</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Socials</h4>
+        <ul>
+          <li><a href="https://www.linkedin.com/company/the-imagination-project-foundation" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/tipthinker/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://theimaginationproject.substack.com/" target="_blank" rel="noopener">Substack</a></li>
+        </ul>
+      </div>
+      <div class="news">
+        <h4>Stay close</h4>
+        <p>Essays, program updates, and the occasional big announcement — on our Substack.</p>
+        <a class="btn btn-gold" href="https://theimaginationproject.substack.com/" target="_blank" rel="noopener">Subscribe <span class="arr">→</span></a>
+      </div>
+    </div>
+    <div class="bottom">
+      <span>© <span id="year">2026</span> The Imagination Project</span>
+      <span>Imagine better · write our future</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

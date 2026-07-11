@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Impact — The Imagination Project</title>
+<meta name="description" content="500+ students taught, 800+ women funded, and a roadmap that only gets bigger." />
+<link rel="icon" type="image/png" href="assets/logo-teal.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/main.css" />
+<style>
+  .big-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+  .big-stats .stat{background:var(--white);padding:clamp(36px,4.5vw,64px);}
+  @media(max-width:860px){.big-stats{grid-template-columns:1fr;}}
+
+  .story{background:var(--teal-tint);}
+  .story .photo{aspect-ratio:16/10;}
+  .story blockquote{
+    font-family:var(--serif);font-size:clamp(24px,2.8vw,38px);line-height:1.3;color:var(--teal-ink);text-wrap:balance;
+  }
+  .story blockquote em{font-style:italic;color:var(--teal);}
+
+  .timeline{border-left:1px solid var(--line-strong);margin-left:8px;display:grid;gap:clamp(34px,4vw,54px);padding:10px 0 10px clamp(28px,4vw,60px);}
+  .t-item{position:relative;}
+  .t-item::before{
+    content:"";position:absolute;left:calc(-1 * clamp(28px,4vw,60px) - 6.5px);top:8px;
+    width:12px;height:12px;border-radius:50%;background:var(--gold);border:2px solid var(--cream);
+  }
+  .t-item .yr{font-family:var(--mono);font-size:12px;letter-spacing:.2em;color:var(--teal);text-transform:uppercase;}
+  .t-item h3{font-family:var(--serif);font-size:clamp(24px,2.6vw,34px);margin:8px 0 10px;color:var(--teal-ink);}
+  .t-item p{color:var(--ink-soft);max-width:60ch;text-wrap:pretty;}
+  .t-item.future h3{color:var(--teal);}
+  .t-item.future::before{background:var(--white);border-color:var(--gold);}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="The Imagination Project — home">
+      <img src="assets/logo-teal.png" alt="TIP logo" />
+      <b>The<br /><span>Imagination</span><br />Project</b>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="about.html">About</a>
+      <a href="get-involved.html">Get Involved</a>
+      <div class="nav-drop">
+        <button type="button" aria-haspopup="true">Socials</button>
+        <div class="menu">
+          <a href="https://www.linkedin.com/company/the-imagination-project-foundation" target="_blank" rel="noopener">LinkedIn <span>↗</span></a>
+          <a href="https://www.instagram.com/tipthinker/" target="_blank" rel="noopener">Instagram <span>↗</span></a>
+          <a href="https://theimaginationproject.substack.com/" target="_blank" rel="noopener">Substack <span>↗</span></a>
+        </div>
+      </div>
+    </nav>
+    <button class="burger" type="button" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<aside class="drawer" aria-label="Menu">
+  <p class="d-label">Explore</p>
+  <nav>
+    <a href="programs.html"><i>01</i>Programs</a>
+    <a href="impact.html"><i>02</i>Impact</a>
+    <a href="about.html"><i>03</i>About</a>
+    <a href="get-involved.html"><i>04</i>Get Involved</a>
+  </nav>
+  <div class="d-foot">
+    <a href="https://www.linkedin.com/company/the-imagination-project-foundation" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://www.instagram.com/tipthinker/" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://theimaginationproject.substack.com/" target="_blank" rel="noopener">Substack</a>
+  </div>
+</aside>
+<div class="scrim"></div>
+
+<section class="page-hero" data-screen-label="Impact hero">
+  <img class="ghost" src="assets/logo-teal.png" alt="" aria-hidden="true" />
+  <div class="wrap">
+    <span class="eyebrow kicker">Impact</span>
+    <h1>Small team. <em>Real numbers.</em></h1>
+    <p class="lead">Founded in 2025. Here's what happened in the first year — and where the line goes next.</p>
+  </div>
+</section>
+
+<!-- NUMBERS -->
+<section class="sec-pad" style="padding-top:clamp(40px,5vw,70px);" data-screen-label="Numbers">
+  <div class="wrap">
+    <div class="big-stats reveal" data-stagger>
+      <div class="stat"><b data-count="500" data-suffix="+">500</b><span>Elementary students taught across Texas — in the program's first four months</span></div>
+      <div class="stat"><b data-count="800" data-suffix="+">800</b><span>Women in Ahmedabad, India whose literacy &amp; hygiene programs the book funds</span></div>
+      <div class="stat"><b data-count="50" data-suffix="+">50</b><span>Languages our translation corps is building toward</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story sec-pad" data-screen-label="Story">
+  <div class="wrap grid-2">
+    <div class="photo reveal"><img src="assets/valentines.jpg" alt="Handmade cards from TIP students" /><span class="cap">Made by students · sent with love</span></div>
+    <div class="reveal">
+      <span class="eyebrow">One book, two continents</span>
+      <blockquote style="margin-top:24px;">A children's book written for Texas classrooms now funds literacy and hygiene programs for <em>eight hundred women</em> half a world away.</blockquote>
+      <p class="lead" style="margin-top:22px;">Every copy of the Dear Future Leader book routes its proceeds to Manav Sadhna in Ahmedabad, India — proof that a program built by young people can carry further than anyone expected.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="sec-pad" data-screen-label="Roadmap">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">The line so far — and next</span>
+      <h2 class="sec">Where this <em>is going</em></h2>
+    </div>
+    <div class="timeline reveal" data-stagger>
+      <div class="t-item">
+        <span class="yr">2025</span>
+        <h3>Founded — and moving fast</h3>
+        <p>TIP is founded in Texas. Dear Future Leader is written, and delivered to 500+ elementary students within four months. The book begins funding 800+ women through Manav Sadhna.</p>
+      </div>
+      <div class="t-item">
+        <span class="yr">2026</span>
+        <h3>The translator corps</h3>
+        <p>Students begin translating AI education toward our 50+ language goal — earning service hours while closing the digital divide. Anabella Laudicina joins as Executive Director.</p>
+      </div>
+      <div class="t-item future">
+        <span class="yr">Next</span>
+        <h3>The AI Index</h3>
+        <p>Investigative research with data scientists produces a precise index of how colleges use and rely on AI — built to expand across US campuses.</p>
+      </div>
+      <div class="t-item future">
+        <span class="yr">Soon</span>
+        <h3>The Education Hub</h3>
+        <p>Career-path learning for districts and school clubs — group projects, mentors in every sector, speakers and podcasts across languages and cultures.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band" data-screen-label="CTA">
+  <img class="ghost" src="assets/logo-cream.png" alt="" aria-hidden="true" />
+  <div class="wrap">
+    <span class="eyebrow no-rule" style="color:var(--gold);">Move the numbers</span>
+    <h2>Help us write <em>year two.</em></h2>
+    <p>Back the research, sponsor a translation drive, or bring TIP to your district — the next line of this page is yours to write.</p>
+    <a class="btn btn-light" href="get-involved.html#partner">Partner with TIP <span class="arr">→</span></a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fmark" aria-hidden="true">Imagine Better<i>✳</i></div>
+    <div class="top">
+      <div class="fbrand">
+        <img src="assets/logo-gold.png" alt="TIP logo" />
+        <p>Equitable access to AI education — and youth agency in technology governance, globally.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="programs.html">Programs</a></li>
+          <li><a href="impact.html">Impact</a></li>
+          <li><a href="get-involved.html">Get Involved</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Socials</h4>
+        <ul>
+          <li><a href="https://www.linkedin.com/company/the-imagination-project-foundation" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/tipthinker/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://theimaginationproject.substack.com/" target="_blank" rel="noopener">Substack</a></li>
+        </ul>
+      </div>
+      <div class="news">
+        <h4>Stay close</h4>
+        <p>Essays, program updates, and the occasional big announcement — on our Substack.</p>
+        <a class="btn btn-gold" href="https://theimaginationproject.substack.com/" target="_blank" rel="noopener">Subscribe <span class="arr">→</span></a>
+      </div>
+    </div>
+    <div class="bottom">
+      <span>© <span id="year">2026</span> The Imagination Project</span>
+      <span>Imagine better · write our future</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

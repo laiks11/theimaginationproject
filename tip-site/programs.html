@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Programs — The Imagination Project</title>
+<meta name="description" content="Dear Future Leader, the Translation Initiative, the AI Index, and the Education Hub — what's live and what's next." />
+<link rel="icon" type="image/png" href="assets/logo-teal.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/main.css" />
+<style>
+  .prog{
+    display:grid;grid-template-columns:110px minmax(280px,1.15fr) minmax(280px,1fr);
+    gap:clamp(26px,3.5vw,64px);padding:clamp(60px,7vw,100px) 0;border-bottom:1px solid var(--line);
+    scroll-margin-top:90px;align-items:start;
+  }
+  .prog:first-child{border-top:1px solid var(--line);}
+  .prog .no{font-family:var(--mono);font-size:13px;color:var(--gold-deep);letter-spacing:.14em;position:sticky;top:110px;}
+  .prog .no b{display:block;font-family:var(--sans);font-weight:800;font-variation-settings:"wdth" 120;font-size:clamp(34px,3.4vw,52px);color:var(--teal-tint-2);line-height:1;margin-top:8px;letter-spacing:-.02em;}
+  .prog h2{font-family:var(--serif);font-size:clamp(32px,3.6vw,52px);color:var(--teal-ink);}
+  .prog h2 em{font-style:italic;color:var(--teal);}
+  .prog .status{
+    display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;white-space:nowrap;
+    padding:8px 14px;border:1px solid var(--line-strong);color:var(--teal);margin:16px 0 22px;
+  }
+  .prog .status.soon{border-color:var(--gold);color:var(--gold-deep);background:var(--gold-tint);}
+  .prog p{color:var(--ink-soft);max-width:52ch;text-wrap:pretty;}
+  .prog p+p{margin-top:14px;}
+  .prog .side .photo{aspect-ratio:4/3;}
+  .prog .side ul{list-style:none;display:grid;gap:12px;border-top:1px solid var(--line);padding-top:22px;}
+  .prog .side ul li{display:flex;gap:14px;align-items:baseline;color:var(--ink-soft);font-size:15.5px;}
+  .prog .side ul li::before{content:"✳";color:var(--gold);font-size:12px;flex:none;}
+  .prog .side ul li b{color:var(--teal-ink);font-weight:600;}
+  @media(max-width:1020px){
+    .prog{grid-template-columns:64px 1fr;}
+    .prog .side{grid-column:2;}
+  }
+  @media(max-width:640px){
+    .prog{grid-template-columns:1fr;}
+    .prog .no{position:static;}
+    .prog .side{grid-column:1;}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="The Imagination Project — home">
+      <img src="assets/logo-teal.png" alt="TIP logo" />
+      <b>The<br /><span>Imagination</span><br />Project</b>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="about.html">About</a>
+      <a href="get-involved.html">Get Involved</a>
+      <div class="nav-drop">
+        <button type="button" aria-haspopup="true">Socials</button>
+        <div class="menu">
+          <a href="https://www.linkedin.com/company/the-imagination-project-foundation" target="_blank" rel="noopener">LinkedIn <span>↗</span></a>
+          <a href="https://www.instagram.com/tipthinker/" target="_blank" rel="noopener">Instagram <span>↗</span></a>
+          <a href="https://theimaginationproject.substack.com/" target="_blank" rel="noopener">Substack <span>↗</span></a>
+        </div>
+      </div>
+    </nav>
+    <button class="burger" type="button" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<aside class="drawer" aria-label="Menu">
+  <p class="d-label">Explore</p>
+  <nav>
+    <a href="programs.html"><i>01</i>Programs</a>
+    <a href="impact.html"><i>02</i>Impact</a>
+    <a href="about.html"><i>03</i>About</a>
+    <a href="get-involved.html"><i>04</i>Get Involved</a>
+  </nav>
+  <div class="d-foot">
+    <a href="https://www.linkedin.com/company/the-imagination-project-foundation" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://www.instagram.com/tipthinker/" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://theimaginationproject.substack.com/" target="_blank" rel="noopener">Substack</a>
+  </div>
+</aside>
+<div class="scrim"></div>
+
+<section class="page-hero" data-screen-label="Programs hero">
+  <img class="ghost" src="assets/logo-teal.png" alt="" aria-hidden="true" />
+  <div class="wrap">
+    <span class="eyebrow kicker">Programs</span>
+    <h1>What's live, and <em>what's next.</em></h1>
+    <p class="lead">Two programs running today. Two more in the wings. All of it built around one belief: young people are authors of the future, not its audience.</p>
+  </div>
+</section>
+
+<section data-screen-label="Program list">
+  <div class="wrap">
+
+    <div class="prog" id="dfl">
+      <div class="no">Active<b>01</b></div>
+      <div class="reveal">
+        <h2>Dear <em>Future Leader</em></h2>
+        <span class="status">Active now</span>
+        <p>Our flagship curriculum, written and delivered to more than five hundred elementary students across Texas in its first four months. Students don't study leadership — they practice it, through group projects, real audiences, and the skills AI can't replace.</p>
+        <p>The accompanying children's book funds literacy and hygiene programs for over eight hundred women served by Manav Sadhna in Ahmedabad, India.</p>
+      </div>
+      <div class="side reveal">
+        <div class="photo"><img src="assets/assembly-hero.jpg" alt="Dear Future Leader assembly" /><span class="cap">Texas · 2025</span></div>
+      </div>
+    </div>
+
+    <div class="prog" id="translate">
+      <div class="no">Active<b>02</b></div>
+      <div class="reveal">
+        <h2>The Translation <em>Initiative</em></h2>
+        <span class="status">Active now</span>
+        <p>AI is being explained to the world in one language. Our student translator corps is changing that — carrying AI education into 50+ languages for kids, classrooms, and developing countries on the far side of the digital divide.</p>
+        <p>Student translators earn verified service hours; partner companies and schools amplify the reach.</p>
+      </div>
+      <div class="side reveal">
+        <ul>
+          <li><b>Who:</b> students anywhere, any language</li>
+          <li><b>What:</b> translate AI education materials</li>
+          <li><b>Earn:</b> verified service hours + credit</li>
+          <li><b>Goal:</b> 50+ languages</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="prog" id="index">
+      <div class="no">Next<b>03</b></div>
+      <div class="reveal">
+        <h2>The AI <em>Index</em></h2>
+        <span class="status soon">In development</span>
+        <p>How much do colleges actually use and rely on AI — and what does it cost them intellectually and ecologically? We're analyzing the questions, working with data scientists, and conducting investigative research to build a precise, honest index.</p>
+        <p>Designed from day one to expand across US colleges.</p>
+      </div>
+      <div class="side reveal">
+        <ul>
+          <li><b>Method:</b> surveys + investigative research</li>
+          <li><b>Partners:</b> data scientists</li>
+          <li><b>Scope:</b> built to scale across US campuses</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="prog" id="hub">
+      <div class="no">Next<b>04</b></div>
+      <div class="reveal">
+        <h2>The Education <em>Hub</em></h2>
+        <span class="status soon">Coming soon</span>
+        <p>A career-path learning platform — half-asynchronous, half-live — that districts can adopt and schools can run as a club. Group projects at the core, a mentor in whatever sector you choose, and a network that follows you.</p>
+        <p>Plus speakers and podcasts featuring professionals across the country, in different languages and from different cultures.</p>
+      </div>
+      <div class="side reveal">
+        <ul>
+          <li><b>Format:</b> half-async, half-live cohorts</li>
+          <li><b>For:</b> districts, schools, clubs</li>
+          <li><b>Core:</b> group projects + mentorship</li>
+          <li><b>Featuring:</b> speakers &amp; podcasts, many cultures</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band" data-screen-label="CTA">
+  <img class="ghost" src="assets/logo-cream.png" alt="" aria-hidden="true" />
+  <div class="wrap">
+    <span class="eyebrow no-rule" style="color:var(--gold);">Make it exist</span>
+    <h2>Programs need <em>people.</em></h2>
+    <p>Translate a lesson, lead a chapter, or lend your craft — every program on this page runs on volunteers.</p>
+    <a class="btn btn-light" href="get-involved.html">Get involved <span class="arr">→</span></a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fmark" aria-hidden="true">Imagine Better<i>✳</i></div>
+    <div class="top">
+      <div class="fbrand">
+        <img src="assets/logo-gold.png" alt="TIP logo" />
+        <p>Equitable access to AI education — and youth agency in technology governance, globally.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="programs.html">Programs</a></li>
+          <li><a href="impact.html">Impact</a></li>
+          <li><a href="get-involved.html">Get Involved</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Socials</h4>
+        <ul>
+          <li><a href="https://www.linkedin.com/company/the-imagination-project-foundation" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/tipthinker/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://theimaginationproject.substack.com/" target="_blank" rel="noopener">Substack</a></li>
+        </ul>
+      </div>
+      <div class="news">
+        <h4>Stay close</h4>
+        <p>Essays, program updates, and the occasional big announcement — on our Substack.</p>
+        <a class="btn btn-gold" href="https://theimaginationproject.substack.com/" target="_blank" rel="noopener">Subscribe <span class="arr">→</span></a>
+      </div>
+    </div>
+    <div class="bottom">
+      <span>© <span id="year">2026</span> The Imagination Project</span>
+      <span>Imagine better · write our future</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

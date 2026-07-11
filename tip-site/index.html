@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Imagination Project — Imagine Better</title>
+<meta name="description" content="Equitable access to AI education and youth agency in technology governance — globally. Translate, research, learn." />
+<link rel="icon" type="image/png" href="assets/logo-teal.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/main.css" />
+<style>
+  /* ---------- hero ---------- */
+  .hero{
+    min-height:100svh;position:relative;overflow:hidden;
+    display:flex;flex-direction:column;justify-content:center;
+    padding:calc(var(--nav-h) + 20px) 0 110px;
+  }
+  #hero-gl{position:absolute;inset:0;width:100%;height:100%;z-index:0;}
+  .hero-ghost{
+    position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+    width:min(640px,58vw);opacity:.09;z-index:1;pointer-events:none;
+    transition:transform .6s var(--ease);will-change:transform;
+  }
+  .hero .wrap{position:relative;z-index:2;width:100%;}
+  .hero-kicker{
+    font-family:var(--mono);font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--teal);
+    display:flex;align-items:center;gap:16px;margin-bottom:clamp(26px,3.5vh,44px);
+  }
+  .hero-kicker::after{content:"";flex:1;max-width:120px;height:1px;background:var(--gold);}
+  #hero-title{
+    font-size:clamp(58px,11.5vw,176px);line-height:.94;color:var(--teal-ink);
+    font-weight:800;letter-spacing:-.015em;text-transform:uppercase;
+    font-variation-settings:"wdth" 118;
+    display:block;max-width:12ch;
+  }
+  #hero-title .word{display:inline-block;white-space:nowrap;}
+  #hero-title .ltr{
+    display:inline-block;transform:translateY(112%);
+    transition:transform .9s var(--ease),font-variation-settings .45s var(--ease),color .45s var(--ease);
+    cursor:default;
+  }
+  #hero-title.ready .ltr{transform:none;}
+  #hero-title .word{overflow:hidden;padding-bottom:.08em;margin-bottom:-.08em;}
+  #hero-title .ltr:hover{
+    font-family:var(--serif);font-style:italic;font-weight:400;text-transform:lowercase;
+    color:var(--teal);
+  }
+  #hero-title.nonlatin{font-variation-settings:"wdth" 100;letter-spacing:0;font-size:clamp(50px,9vw,140px);}
+  #hero-title .asl-tile{
+    display:inline-grid;place-items:center;width:.92em;height:.92em;margin:.03em;
+    border:2px solid var(--teal);color:var(--teal);font-size:.42em;
+    font-family:var(--mono);font-weight:500;background:rgba(255,255,255,.55);
+    transform:translateY(112%);transition:transform .9s var(--ease);
+  }
+  #hero-title.ready .asl-tile{transform:none;}
+  #hero-sub{
+    font-family:var(--serif);font-style:italic;font-size:clamp(24px,3vw,42px);color:var(--teal);
+    margin-top:clamp(18px,2.5vh,30px);display:inline-flex;align-items:center;gap:20px;white-space:nowrap;
+    transition:opacity .26s ease,transform .26s ease;
+  }
+  #hero-sub::before{content:"—";color:var(--gold);}
+  #hero-sub.swap{opacity:0;transform:translateY(10px);}
+  #hero-lang-note{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--ink-soft);margin-top:14px;min-height:16px;text-transform:uppercase;}
+  /* language switcher */
+  .lang-switch{
+    position:absolute;right:clamp(22px,4.5vw,72px);bottom:34px;z-index:3;
+    display:flex;flex-direction:column;align-items:flex-end;gap:10px;max-width:380px;
+  }
+  .lang-switch .chips{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:8px;}
+  .lang-chip{
+    font-family:var(--mono);font-size:12px;letter-spacing:.08em;padding:9px 14px;cursor:pointer;white-space:nowrap;
+    border:1px solid var(--line-strong);background:rgba(255,255,255,.6);color:var(--teal-ink);
+    backdrop-filter:blur(6px);transition:all .25s var(--ease);
+  }
+  .lang-chip:hover{border-color:var(--teal);color:var(--teal);transform:translateY(-2px);}
+  .lang-chip.on{background:var(--teal);border-color:var(--teal);color:var(--cream);}
+  .lang-label{
+    font-family:var(--mono);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-soft);white-space:nowrap;
+  }
+  .hero-cue{
+    position:absolute;left:clamp(22px,4.5vw,72px);bottom:34px;z-index:3;background:none;border:0;cursor:pointer;
+    display:flex;align-items:center;gap:14px;font-family:var(--mono);font-size:11px;letter-spacing:.24em;
+    text-transform:uppercase;color:var(--teal-ink);
+  }
+  .hero-cue .line{width:1px;height:44px;background:var(--teal-ink);position:relative;overflow:hidden;}
+  .hero-cue .line::after{
+    content:"";position:absolute;left:0;top:-100%;width:100%;height:100%;background:var(--gold);
+    animation:cue-drop 1.8s var(--ease-io) infinite;
+  }
+  @keyframes cue-drop{to{top:100%;}}
+  .hero-mission{
+    position:absolute;left:clamp(22px,4.5vw,72px);bottom:100px;z-index:3;max-width:260px;
+    font-size:13px;line-height:1.55;color:var(--ink-soft);text-wrap:pretty;
+  }
+  @media(max-width:760px),(max-height:720px){
+    .hero-mission{display:none;}
+  }
+  @media(max-width:760px){
+    .lang-switch{left:clamp(22px,4.5vw,72px);right:auto;align-items:flex-start;bottom:88px;}
+    .lang-switch .chips{justify-content:flex-start;}
+    .hero-cue{bottom:30px;}
+  }
+
+  /* mission statement */
+  .mission p{
+    font-family:var(--serif);font-size:clamp(30px,4vw,56px);line-height:1.22;color:var(--teal-ink);
+    max-width:24ch;text-wrap:balance;
+  }
+  .mission p em{font-style:italic;color:var(--teal);}
+  .mission p .gold{color:var(--gold-deep);font-style:italic;}
+  .mission .side{display:flex;flex-direction:column;gap:26px;justify-content:center;}
+  .mission .side p{font-family:var(--sans);font-size:16.5px;line-height:1.65;color:var(--ink-soft);max-width:44ch;}
+
+  /* stats band */
+  .stats{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0;}
+  .stats .stat{padding:clamp(40px,4.5vw,70px) clamp(20px,2.5vw,44px);border-left:1px solid var(--line);}
+  .stats .stat:first-child{border-left:0;}
+  @media(max-width:960px){
+    .stats .wrap{grid-template-columns:1fr 1fr;}
+    .stats .stat:nth-child(3){border-left:0;}
+    .stats .stat{border-top:1px solid var(--line);}
+    .stats .stat:nth-child(-n+2){border-top:0;}
+  }
+  @media(max-width:560px){
+    .stats .wrap{grid-template-columns:1fr;}
+    .stats .stat{border-left:0;}
+    .stats .stat:nth-child(2){border-top:1px solid var(--line);}
+  }
+
+  /* feature (Dear Future Leader) */
+  .feature{background:var(--teal-tint);}
+  .feature .photos{position:relative;padding-bottom:40px;}
+  .feature .photos .photo{aspect-ratio:4/3;}
+  .feature .photos .p2{
+    position:absolute;right:0;bottom:0;width:52%;aspect-ratio:1/1;border:8px solid var(--cream);
+    box-shadow:0 30px 70px -30px rgba(11,40,39,.4);
+  }
+  .feature .body{display:flex;flex-direction:column;gap:24px;align-items:flex-start;}
+  .feature .body ul{list-style:none;display:grid;gap:12px;}
+  .feature .body ul li{display:flex;gap:14px;align-items:baseline;color:var(--ink-soft);font-size:16.5px;}
+  .feature .body ul li::before{content:"✳";color:var(--gold);font-size:13px;flex:none;}
+
+  /* founder quote */
+  .quote-band{background:var(--cream);}
+  .quote-band blockquote{
+    font-family:var(--serif);font-size:clamp(26px,3.2vw,44px);line-height:1.3;color:var(--teal-ink);
+    text-wrap:balance;
+  }
+  .quote-band blockquote em{font-style:italic;color:var(--teal);}
+  .quote-band .who{margin-top:30px;display:flex;align-items:center;gap:18px;}
+  .quote-band .who img{width:64px;height:64px;object-fit:cover;object-position:50% 32%;border-radius:50%;}
+  .quote-band .who b{font-size:15px;letter-spacing:.06em;text-transform:uppercase;display:block;}
+  .quote-band .who span{font-family:var(--mono);font-size:12px;color:var(--ink-soft);letter-spacing:.08em;}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="The Imagination Project — home">
+      <img src="assets/logo-teal.png" alt="TIP logo" />
+      <b>The<br /><span>Imagination</span><br />Project</b>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="about.html">About</a>
+      <a href="get-involved.html">Get Involved</a>
+      <div class="nav-drop">
+        <button type="button" aria-haspopup="true">Socials</button>
+        <div class="menu">
+          <a href="https://www.linkedin.com/company/the-imagination-project-foundation" target="_blank" rel="noopener">LinkedIn <span>↗</span></a>
+          <a href="https://www.instagram.com/tipthinker/" target="_blank" rel="noopener">Instagram <span>↗</span></a>
+          <a href="https://theimaginationproject.substack.com/" target="_blank" rel="noopener">Substack <span>↗</span></a>
+        </div>
+      </div>
+    </nav>
+    <button class="burger" type="button" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<aside class="drawer" aria-label="Menu">
+  <p class="d-label">Explore</p>
+  <nav>
+    <a href="programs.html"><i>01</i>Programs</a>
+    <a href="impact.html"><i>02</i>Impact</a>
+    <a href="about.html"><i>03</i>About</a>
+    <a href="get-involved.html"><i>04</i>Get Involved</a>
+  </nav>
+  <div class="d-foot">
+    <a href="https://www.linkedin.com/company/the-imagination-project-foundation" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://www.instagram.com/tipthinker/" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://theimaginationproject.substack.com/" target="_blank" rel="noopener">Substack</a>
+  </div>
+</aside>
+<div class="scrim"></div>
+
+<!-- HERO -->
+<section class="hero" id="hero" data-screen-label="Home hero">
+  <canvas id="hero-gl" aria-hidden="true"></canvas>
+  <img class="hero-ghost" src="assets/logo-teal.png" alt="" aria-hidden="true" />
+  <div class="wrap">
+    <p class="hero-kicker">The Imagination Project · est. 2025</p>
+    <h1 id="hero-title" aria-label="Imagine Better">Imagine Better</h1>
+    <p id="hero-sub">write our future</p>
+    <p id="hero-lang-note"></p>
+  </div>
+  <p class="hero-mission">Equitable access to AI education — and youth agency in how technology is governed, everywhere.</p>
+  <button class="hero-cue" type="button" aria-label="Scroll down"><span class="line"></span>Scroll</button>
+  <div class="lang-switch">
+    <p class="lang-label">Read it in</p>
+    <div class="chips" role="group" aria-label="Choose a language">
+      <button class="lang-chip on" type="button" data-lang="en">EN</button>
+      <button class="lang-chip" type="button" data-lang="es">ES</button>
+      <button class="lang-chip" type="button" data-lang="fr">FR</button>
+      <button class="lang-chip" type="button" data-lang="zh">中文</button>
+      <button class="lang-chip" type="button" data-lang="hi">हिंदी</button>
+      <button class="lang-chip" type="button" data-lang="ar">عربي</button>
+      <button class="lang-chip" type="button" data-lang="ru">RU</button>
+      <button class="lang-chip" type="button" data-lang="asl">ASL</button>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section class="mission sec-pad" data-screen-label="Mission">
+  <div class="wrap grid-2" style="align-items:start;">
+    <div class="reveal">
+      <p data-ink>AI is rewriting the world in <em>one language</em>. We are a youth-led nonprofit making sure <span class="gold">every young person</span> gets to write back.</p>
+    </div>
+    <div class="side reveal">
+      <span class="eyebrow">What we do</span>
+      <p>The Imagination Project translates AI education into the languages of undereducated communities — from elementary classrooms to developing countries — and builds the research, mentorship, and programs that give young people real agency over the technology shaping their lives.</p>
+      <a class="btn" href="about.html">Why TIP exists <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span>Imagine Better</span><span>Imagina mejor</span><span>Imaginez mieux</span><span>想象更好</span><span>बेहतर की कल्पना करें</span><span>تخيّل أفضل</span><span>Представь лучшее</span>
+    <span>Imagine Better</span><span>Imagina mejor</span><span>Imaginez mieux</span><span>想象更好</span><span>बेहतर की कल्पना करें</span><span>تخيّل أفضل</span><span>Представь лучшее</span>
+  </div>
+</div>
+
+<!-- PILLARS -->
+<section class="sec-pad" data-screen-label="Pillars">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">The work</span>
+      <h2 class="sec">Three ways we <em>move the line</em></h2>
+    </div>
+    <div class="index-list reveal">
+      <a class="index-row" href="get-involved.html#translate">
+        <span class="no">01</span>
+        <span>
+          <h3>Translate</h3>
+          <p>Students translate AI education into 50+ languages — earning service hours while closing the digital divide for kids and communities the AI boom left out.</p>
+        </span>
+        <span class="tag">Active now</span>
+      </a>
+      <a class="index-row" href="programs.html#index">
+        <span class="no">02</span>
+        <span>
+          <h3>The AI Index</h3>
+          <p>Investigative research with data scientists, building a precise index that scores how colleges use and rely on AI — designed to expand across US campuses.</p>
+        </span>
+        <span class="tag soon">In development</span>
+      </a>
+      <a class="index-row" href="programs.html#hub">
+        <span class="no">03</span>
+        <span>
+          <h3>The Education Hub</h3>
+          <p>Speakers, podcasts, and career-path learning built around the skills AI can't replace — mentorship included, cultures featured, group projects at the core.</p>
+        </span>
+        <span class="tag soon">Coming soon</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats" data-screen-label="Numbers">
+  <div class="wrap" data-stagger>
+    <div class="stat reveal"><b data-count="500" data-suffix="+">500</b><span>Elementary students taught</span></div>
+    <div class="stat reveal"><b data-count="800" data-suffix="+">800</b><span>Women funded in Ahmedabad, India</span></div>
+    <div class="stat reveal"><b data-count="50" data-suffix="+">50</b><span>Languages — our translation goal</span></div>
+    <div class="stat reveal"><b data-count="2025">2025</b><span>Founded in Texas</span></div>
+  </div>
+</section>
+
+<!-- FEATURE -->
+<section class="feature sec-pad" data-screen-label="Dear Future Leader">
+  <div class="wrap grid-2">
+    <div class="photos reveal">
+      <div class="photo"><img src="assets/students.jpg" alt="Dear Future Leader assembly" /><span class="cap">Dear Future Leader · Texas</span></div>
+      <div class="photo p2"><img src="assets/assembly-hero.jpg" alt="Students at a TIP assembly" /></div>
+    </div>
+    <div class="body">
+      <span class="eyebrow reveal">Flagship program</span>
+      <h2 class="sec reveal">Dear <em>Future Leader</em></h2>
+      <p class="lead reveal">Written and delivered to more than five hundred elementary students across Texas in its first four months — a curriculum that treats kids as the authors of what comes next, not the audience.</p>
+      <ul class="reveal" data-stagger>
+        <li>The accompanying children's book funds literacy and hygiene programs for 800+ women served by Manav Sadhna in Ahmedabad, India.</li>
+        <li>Built to travel: every lesson is designed for translation from day one.</li>
+      </ul>
+      <a class="btn reveal" href="programs.html">See all programs <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section class="quote-band sec-pad" data-screen-label="Founder quote">
+  <div class="wrap" style="max-width:1000px;">
+    <span class="eyebrow reveal">From our founder</span>
+    <blockquote class="reveal" style="margin-top:26px;">"The kids we teach will not get to vote on the technology deciding their futures for another decade. <em>Imagination is how they participate now.</em>"</blockquote>
+    <div class="who reveal">
+      <img src="assets/laika-portrait.png" alt="Laika Kalyani Patel" />
+      <div>
+        <b>Laika Kalyani Patel</b>
+        <span>Founder · Yale University</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band" data-screen-label="CTA">
+  <img class="ghost" src="assets/logo-cream.png" alt="" aria-hidden="true" />
+  <div class="wrap">
+    <span class="eyebrow no-rule" style="color:var(--gold);">Join us</span>
+    <h2>Imagine better, <em>with us.</em></h2>
+    <p>Translate a lesson. Start a chapter. Lend your research. There is a seat at this table with your name on it.</p>
+    <a class="btn btn-light" href="get-involved.html">Get involved <span class="arr">→</span></a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fmark" aria-hidden="true">Imagine Better<i>✳</i></div>
+    <div class="top">
+      <div class="fbrand">
+        <img src="assets/logo-gold.png" alt="TIP logo" />
+        <p>Equitable access to AI education — and youth agency in technology governance, globally.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="programs.html">Programs</a></li>
+          <li><a href="impact.html">Impact</a></li>
+          <li><a href="get-involved.html">Get Involved</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Socials</h4>
+        <ul>
+          <li><a href="https://www.linkedin.com/company/the-imagination-project-foundation" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/tipthinker/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://theimaginationproject.substack.com/" target="_blank" rel="noopener">Substack</a></li>
+        </ul>
+      </div>
+      <div class="news">
+        <h4>Stay close</h4>
+        <p>Essays, program updates, and the occasional big announcement — on our Substack.</p>
+        <a class="btn btn-gold" href="https://theimaginationproject.substack.com/" target="_blank" rel="noopener">Subscribe <span class="arr">→</span></a>
+      </div>
+    </div>
+    <div class="bottom">
+      <span>© <span id="year">2026</span> The Imagination Project</span>
+      <span>Imagine better · write our future</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/hero.js"></script>
+</body>
+</html>

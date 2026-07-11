@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Get Involved — The Imagination Project</title>
+<meta name="description" content="Translate, start a chapter, support research, volunteer, or partner with The Imagination Project." />
+<link rel="icon" type="image/png" href="assets/logo-teal.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/main.css" />
+<style>
+  .ways{border-top:1px solid var(--line);}
+  .way{
+    display:grid;grid-template-columns:minmax(300px,1fr) minmax(340px,1.2fr);gap:clamp(36px,5vw,90px);
+    padding:clamp(60px,7vw,100px) 0;border-bottom:1px solid var(--line);scroll-margin-top:90px;
+  }
+  .way .info{position:sticky;top:110px;align-self:start;}
+  .way .no{font-family:var(--mono);font-size:13px;color:var(--gold-deep);letter-spacing:.14em;}
+  .way h2{font-family:var(--serif);font-size:clamp(34px,3.8vw,54px);margin:14px 0 18px;color:var(--teal-ink);}
+  .way h2 em{font-style:italic;color:var(--teal);}
+  .way .info p{color:var(--ink-soft);max-width:46ch;text-wrap:pretty;}
+  .way .info .perk{
+    margin-top:22px;display:inline-flex;align-items:center;gap:10px;
+    font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--teal);border:1px solid var(--line-strong);padding:9px 14px;background:var(--white);
+  }
+  .way form{background:var(--white);border:1px solid var(--line);padding:clamp(26px,3vw,40px);}
+  @media(max-width:900px){.way{grid-template-columns:1fr;}.way .info{position:static;}}
+  .quick-nav{display:flex;gap:10px;flex-wrap:wrap;margin-top:34px;}
+  .quick-nav a{
+    font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;
+    border:1px solid var(--line-strong);padding:10px 16px;color:var(--teal-ink);background:var(--white);
+    transition:all .25s var(--ease);
+  }
+  .quick-nav a:hover{background:var(--teal);border-color:var(--teal);color:var(--cream);transform:translateY(-2px);}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="The Imagination Project — home">
+      <img src="assets/logo-teal.png" alt="TIP logo" />
+      <b>The<br /><span>Imagination</span><br />Project</b>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="about.html">About</a>
+      <a href="get-involved.html">Get Involved</a>
+      <div class="nav-drop">
+        <button type="button" aria-haspopup="true">Socials</button>
+        <div class="menu">
+          <a href="https://www.linkedin.com/company/the-imagination-project-foundation" target="_blank" rel="noopener">LinkedIn <span>↗</span></a>
+          <a href="https://www.instagram.com/tipthinker/" target="_blank" rel="noopener">Instagram <span>↗</span></a>
+          <a href="https://theimaginationproject.substack.com/" target="_blank" rel="noopener">Substack <span>↗</span></a>
+        </div>
+      </div>
+    </nav>
+    <button class="burger" type="button" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<aside class="drawer" aria-label="Menu">
+  <p class="d-label">Explore</p>
+  <nav>
+    <a href="programs.html"><i>01</i>Programs</a>
+    <a href="impact.html"><i>02</i>Impact</a>
+    <a href="about.html"><i>03</i>About</a>
+    <a href="get-involved.html"><i>04</i>Get Involved</a>
+  </nav>
+  <div class="d-foot">
+    <a href="https://www.linkedin.com/company/the-imagination-project-foundation" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://www.instagram.com/tipthinker/" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://theimaginationproject.substack.com/" target="_blank" rel="noopener">Substack</a>
+  </div>
+</aside>
+<div class="scrim"></div>
+
+<section class="page-hero" data-screen-label="Get involved hero">
+  <img class="ghost" src="assets/logo-teal.png" alt="" aria-hidden="true" />
+  <div class="wrap">
+    <span class="eyebrow kicker">Get involved</span>
+    <h1>There's a seat with <em>your name</em> on it.</h1>
+    <p class="lead">Five ways in — pick yours. Every form lands directly with our team.</p>
+    <div class="quick-nav">
+      <a href="#translate">01 · Translate</a>
+      <a href="#chapter">02 · Start a chapter</a>
+      <a href="#research">03 · Support research</a>
+      <a href="#volunteer">04 · Volunteer · Media</a>
+      <a href="#partner">05 · Partner</a>
+    </div>
+  </div>
+</section>
+
+<section class="ways" data-screen-label="Ways to get involved">
+  <div class="wrap">
+
+    <!-- 01 TRANSLATE -->
+    <div class="way" id="translate">
+      <div class="info reveal">
+        <span class="no">01</span>
+        <h2>Translate the <em>future</em></h2>
+        <p>Join our student translator corps carrying AI education into 50+ languages. You pick the language and the pace; we provide the source material, review, and credit.</p>
+        <span class="perk">✳ Earn verified service hours</span>
+      </div>
+      <form name="translate" method="POST" data-netlify="true" class="form reveal">
+        <input type="hidden" name="form-name" value="translate" />
+        <div class="row2">
+          <label>Name<input type="text" name="name" required /></label>
+          <label>Email<input type="email" name="email" required /></label>
+        </div>
+        <div class="row2">
+          <label>Language(s) you translate<input type="text" name="languages" placeholder="e.g. Spanish, Hindi" required /></label>
+          <label>School / organization<input type="text" name="school" /></label>
+        </div>
+        <label>Anything we should know?<textarea name="message"></textarea></label>
+        <button class="btn btn-solid" type="submit">Join the translator corps <span class="arr">→</span></button>
+      </form>
+    </div>
+
+    <!-- 02 CHAPTER -->
+    <div class="way" id="chapter">
+      <div class="info reveal">
+        <span class="no">02</span>
+        <h2>Start a <em>chapter</em></h2>
+        <p>Bring TIP to your school or city — run translation drives, group projects, and AI literacy sessions with our playbook, materials, and a direct line to our team.</p>
+        <span class="perk">✳ Playbook + mentorship included</span>
+      </div>
+      <form name="chapter" method="POST" data-netlify="true" class="form reveal">
+        <input type="hidden" name="form-name" value="chapter" />
+        <div class="row2">
+          <label>Name<input type="text" name="name" required /></label>
+          <label>Email<input type="email" name="email" required /></label>
+        </div>
+        <div class="row2">
+          <label>School / city<input type="text" name="location" required /></label>
+          <label>Grade level
+            <select name="grade">
+              <option>Middle school</option>
+              <option>High school</option>
+              <option>College</option>
+              <option>Other</option>
+            </select>
+          </label>
+        </div>
+        <label>Why a chapter, why you?<textarea name="message"></textarea></label>
+        <button class="btn btn-solid" type="submit">Apply to lead <span class="arr">→</span></button>
+      </form>
+    </div>
+
+    <!-- 03 RESEARCH -->
+    <div class="way" id="research">
+      <div class="info reveal">
+        <span class="no">03</span>
+        <h2>Support the <em>research</em></h2>
+        <p>We're building an index that scores how colleges use and rely on AI — with data scientists, surveys, and investigative rigor. Researchers, data folks, and survey respondents all move it forward.</p>
+        <span class="perk">✳ Expanding across US colleges</span>
+      </div>
+      <form name="research" method="POST" data-netlify="true" class="form reveal">
+        <input type="hidden" name="form-name" value="research" />
+        <div class="row2">
+          <label>Name<input type="text" name="name" required /></label>
+          <label>Email<input type="email" name="email" required /></label>
+        </div>
+        <div class="row2">
+          <label>Affiliation<input type="text" name="affiliation" placeholder="College, lab, company" /></label>
+          <label>I can help with
+            <select name="help">
+              <option>Data science / methodology</option>
+              <option>Survey distribution</option>
+              <option>Campus research</option>
+              <option>Funding the research</option>
+              <option>Other</option>
+            </select>
+          </label>
+        </div>
+        <label>Tell us more<textarea name="message"></textarea></label>
+        <button class="btn btn-solid" type="submit">Support the index <span class="arr">→</span></button>
+      </form>
+    </div>
+
+    <!-- 04 VOLUNTEER -->
+    <div class="way" id="volunteer">
+      <div class="info reveal">
+        <span class="no">04</span>
+        <h2>Volunteer — <em>media &amp; more</em></h2>
+        <p>Filmmakers, designers, editors, social storytellers, event hands — the movement needs makers. Tell us what you're great at and how many hours you've got.</p>
+        <span class="perk">✳ Remote-friendly</span>
+      </div>
+      <form name="volunteer" method="POST" data-netlify="true" class="form reveal">
+        <input type="hidden" name="form-name" value="volunteer" />
+        <div class="row2">
+          <label>Name<input type="text" name="name" required /></label>
+          <label>Email<input type="email" name="email" required /></label>
+        </div>
+        <div class="row2">
+          <label>Superpower<input type="text" name="skill" placeholder="Video, design, writing…" required /></label>
+          <label>Hours / week
+            <select name="hours">
+              <option>1–2</option>
+              <option>3–5</option>
+              <option>6–10</option>
+              <option>10+</option>
+            </select>
+          </label>
+        </div>
+        <label>Portfolio / links<input type="text" name="links" placeholder="URL(s)" /></label>
+        <button class="btn btn-solid" type="submit">Raise your hand <span class="arr">→</span></button>
+      </form>
+    </div>
+
+    <!-- 05 PARTNER -->
+    <div class="way" id="partner">
+      <div class="info reveal">
+        <span class="no">05</span>
+        <h2>Partner <em>with TIP</em></h2>
+        <p>Companies, school districts, nonprofits, and funders: co-sponsor translation drives, pilot our programs, or put your weight behind the AI index. We move fast and report honestly.</p>
+        <span class="perk">✳ Districts &amp; companies welcome</span>
+      </div>
+      <form name="partner" method="POST" data-netlify="true" class="form reveal">
+        <input type="hidden" name="form-name" value="partner" />
+        <div class="row2">
+          <label>Name<input type="text" name="name" required /></label>
+          <label>Email<input type="email" name="email" required /></label>
+        </div>
+        <div class="row2">
+          <label>Organization<input type="text" name="org" required /></label>
+          <label>Interest
+            <select name="interest">
+              <option>Sponsor translation</option>
+              <option>Pilot a program</option>
+              <option>Back the AI index</option>
+              <option>Media / press</option>
+              <option>Other</option>
+            </select>
+          </label>
+        </div>
+        <label>What do you have in mind?<textarea name="message"></textarea></label>
+        <button class="btn btn-solid" type="submit">Start the conversation <span class="arr">→</span></button>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band" data-screen-label="CTA">
+  <img class="ghost" src="assets/logo-cream.png" alt="" aria-hidden="true" />
+  <div class="wrap">
+    <span class="eyebrow no-rule" style="color:var(--gold);">Not ready yet?</span>
+    <h2>Stay in <em>the loop.</em></h2>
+    <p>Follow the work on Substack — essays, program updates, and the occasional big announcement.</p>
+    <a class="btn btn-light" href="https://theimaginationproject.substack.com/" target="_blank" rel="noopener">Read the Substack <span class="arr">→</span></a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fmark" aria-hidden="true">Imagine Better<i>✳</i></div>
+    <div class="top">
+      <div class="fbrand">
+        <img src="assets/logo-gold.png" alt="TIP logo" />
+        <p>Equitable access to AI education — and youth agency in technology governance, globally.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="programs.html">Programs</a></li>
+          <li><a href="impact.html">Impact</a></li>
+          <li><a href="get-involved.html">Get Involved</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Socials</h4>
+        <ul>
+          <li><a href="https://www.linkedin.com/company/the-imagination-project-foundation" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://www.instagram.com/tipthinker/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://theimaginationproject.substack.com/" target="_blank" rel="noopener">Substack</a></li>
+        </ul>
+      </div>
+      <div class="news">
+        <h4>Stay close</h4>
+        <p>Essays, program updates, and the occasional big announcement — on our Substack.</p>
+        <a class="btn btn-gold" href="https://theimaginationproject.substack.com/" target="_blank" rel="noopener">Subscribe <span class="arr">→</span></a>
+      </div>
+    </div>
+    <div class="bottom">
+      <span>© <span id="year">2026</span> The Imagination Project</span>
+      <span>Imagine better · write our future</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
