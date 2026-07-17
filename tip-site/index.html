@@ -35,26 +35,20 @@
     font-variation-settings:"wdth" 118;
     display:block;max-width:12ch;
   }
-  #hero-title .word{display:inline-block;white-space:nowrap;}
+  #hero-title .word{display:inline-block;white-space:nowrap;overflow:hidden;padding-bottom:.08em;margin-bottom:-.08em;}
   #hero-title .ltr{
     display:inline-block;transform:translateY(112%);
     transition:transform .9s var(--ease),font-variation-settings .45s var(--ease),color .45s var(--ease);
     cursor:default;
   }
   #hero-title.ready .ltr{transform:none;}
-  #hero-title .word{overflow:hidden;padding-bottom:.08em;margin-bottom:-.08em;}
   #hero-title .ltr:hover{
     font-family:var(--serif);font-style:italic;font-weight:400;text-transform:lowercase;
     color:var(--teal);
   }
+  #hero-title.ready .ltr.jolt{animation:ltr-jolt .28s var(--ease);}
+  @keyframes ltr-jolt{0%{transform:translateY(0);}35%{transform:translateY(-7px) scale(1.04);}100%{transform:translateY(0);}}
   #hero-title.nonlatin{font-variation-settings:"wdth" 100;letter-spacing:0;font-size:clamp(50px,9vw,140px);}
-  #hero-title .asl-tile{
-    display:inline-grid;place-items:center;width:.92em;height:.92em;margin:.03em;
-    border:2px solid var(--teal);color:var(--teal);font-size:.42em;
-    font-family:var(--mono);font-weight:500;background:rgba(255,255,255,.55);
-    transform:translateY(112%);transition:transform .9s var(--ease);
-  }
-  #hero-title.ready .asl-tile{transform:none;}
   #hero-sub{
     font-family:var(--serif);font-style:italic;font-size:clamp(24px,3vw,42px);color:var(--teal);
     margin-top:clamp(18px,2.5vh,30px);display:inline-flex;align-items:center;gap:20px;white-space:nowrap;
@@ -63,7 +57,6 @@
   #hero-sub::before{content:"—";color:var(--gold);}
   #hero-sub.swap{opacity:0;transform:translateY(10px);}
   #hero-lang-note{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--ink-soft);margin-top:14px;min-height:16px;text-transform:uppercase;}
-  /* language switcher */
   .lang-switch{
     position:absolute;right:clamp(22px,4.5vw,72px);bottom:34px;z-index:3;
     display:flex;flex-direction:column;align-items:flex-end;gap:10px;max-width:380px;
@@ -91,7 +84,7 @@
   }
   @keyframes cue-drop{to{top:100%;}}
   .hero-mission{
-    position:absolute;left:clamp(22px,4.5vw,72px);bottom:100px;z-index:3;max-width:260px;
+    position:absolute;left:clamp(22px,4.5vw,72px);bottom:100px;z-index:3;max-width:280px;
     font-size:13px;line-height:1.55;color:var(--ink-soft);text-wrap:pretty;
   }
   @media(max-width:760px),(max-height:720px){
@@ -142,6 +135,94 @@
   .feature .body ul{list-style:none;display:grid;gap:12px;}
   .feature .body ul li{display:flex;gap:14px;align-items:baseline;color:var(--ink-soft);font-size:16.5px;}
   .feature .body ul li::before{content:"✳";color:var(--gold);font-size:13px;flex:none;}
+  .feature .buy{display:flex;flex-wrap:wrap;gap:12px;}
+  .feature .buy-note{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);}
+
+  /* atlas */
+  .atlas{background:var(--cream);}
+  .atlas-shell{background:var(--white);border:1px solid var(--line);display:flex;flex-direction:column;}
+  .atlas-shell:fullscreen{background:var(--white);padding:20px;overflow:auto;}
+  .atlas-shell.fs-fallback{position:fixed;inset:0;z-index:500;padding:20px;overflow:auto;border:0;}
+  .atlas-bar{display:flex;align-items:center;justify-content:space-between;gap:14px;border-bottom:1px solid var(--line);padding:0 clamp(14px,2vw,26px);flex-wrap:wrap;}
+  .atlas-tabs{display:flex;gap:4px;}
+  .a-tab{
+    font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;
+    background:none;border:0;border-bottom:2px solid transparent;color:var(--ink-soft);
+    padding:18px 14px 16px;cursor:pointer;transition:color .2s,border-color .2s;
+  }
+  .a-tab.on{color:var(--teal);border-bottom-color:var(--gold);}
+  .a-tab:hover{color:var(--teal);}
+  .a-fs{
+    font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    border:1px solid var(--line-strong);background:none;color:var(--teal);padding:8px 14px;cursor:pointer;
+    transition:all .25s var(--ease);
+  }
+  .a-fs:hover{background:var(--teal);color:var(--cream);border-color:var(--teal);}
+  .atlas-body{display:grid;grid-template-columns:1.7fr minmax(280px,1fr);align-items:stretch;}
+  .atlas-map{padding:clamp(14px,2vw,30px);min-height:320px;}
+  .atlas-svg{width:100%;height:auto;display:block;}
+  .cty{fill:var(--teal-tint-2);stroke:var(--white);stroke-width:.6;transition:fill .2s;cursor:pointer;transform-box:fill-box;transform-origin:center;}
+  .cty:hover{fill:var(--teal);}
+  .cty.hov{fill:var(--teal);filter:drop-shadow(0 6px 12px rgba(10,125,122,.4));transform:scale(1.05);}
+  .cty.target{fill:var(--gold);animation:cty-pulse 1.2s ease-in-out infinite;}
+  .cty.good-flash{fill:var(--teal-deep);animation:none;}
+  .cty.found{fill:var(--teal);}
+  .cty.bad-flash{fill:#c0392b;animation:none;}
+  .a-reveal{font-family:var(--mono);font-size:13px;letter-spacing:.06em;color:#8f2b20;margin-top:12px;}
+  .a-reveal b{color:var(--teal-ink);font-size:15px;}
+  @keyframes cty-pulse{0%,100%{fill:var(--gold);}50%{fill:var(--gold-deep);}}
+  .atlas-panel{border-left:1px solid var(--line);padding:clamp(20px,2.5vw,34px);display:flex;flex-direction:column;gap:14px;justify-content:flex-start;}
+  .a-label{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-deep);}
+  .a-cty{font-family:var(--serif);font-size:clamp(26px,2.6vw,38px);color:var(--teal-ink);}
+  .a-hint{color:var(--ink-soft);font-size:15px;text-wrap:pretty;}
+  .a-metric{display:grid;gap:6px;}
+  .a-metric span{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);}
+  .a-metric b{font-family:var(--sans);font-weight:800;font-variation-settings:"wdth" 118;font-size:clamp(28px,2.6vw,40px);color:var(--teal);line-height:1;}
+  .a-metric.ghosted{opacity:.35;}
+  .a-bar{height:5px;background:var(--teal-tint);overflow:hidden;}
+  .a-fill{height:100%;background:var(--teal);transition:width .6s var(--ease);}
+  .a-fill.gold{background:var(--gold);}
+  .a-sub{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);margin-top:6px;}
+  .a-chips{display:flex;flex-wrap:wrap;gap:7px;}
+  .a-chip{
+    font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;padding:8px 12px;cursor:pointer;
+    border:1px solid var(--line-strong);background:var(--white);color:var(--teal-ink);transition:all .2s var(--ease);
+  }
+  .a-chip:hover{border-color:var(--teal);color:var(--teal);}
+  .a-chip.on{background:var(--teal);border-color:var(--teal);color:var(--cream);}
+  .a-start{margin-top:14px;align-self:flex-start;}
+  .a-hud{display:flex;justify-content:space-between;align-items:baseline;font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--ink-soft);text-transform:uppercase;}
+  .a-hud b{color:var(--teal);font-size:16px;}
+  .a-clock{color:var(--gold-deep);font-size:16px;font-weight:500;}
+  .a-timebar{height:4px;background:var(--teal-tint);}
+  .a-timebar>div{height:100%;background:var(--gold);transition:width 1s linear;}
+  .a-form{display:grid;gap:12px;}
+  .a-input{
+    font-family:var(--sans);font-size:16px;padding:13px 14px;border:1px solid var(--line-strong);
+    background:var(--white);color:var(--ink);outline:none;width:100%;border-radius:0;
+  }
+  .a-input:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(10,125,122,.14);}
+  .a-input.shake{animation:a-shake .35s ease;border-color:#c0392b;}
+  @keyframes a-shake{0%,100%{transform:translateX(0);}25%{transform:translateX(-7px);}60%{transform:translateX(6px);}}
+  .a-row{display:flex;gap:10px;flex-wrap:wrap;}
+  .btn.a-sm{padding:13px 20px;font-size:12px;}
+  .a-opts{display:grid;gap:9px;}
+  .a-opt{
+    font-family:var(--sans);font-size:15px;font-weight:600;text-align:left;padding:13px 16px;cursor:pointer;
+    border:1px solid var(--line-strong);background:var(--white);color:var(--teal-ink);transition:all .2s var(--ease);
+  }
+  .a-opt:hover{border-color:var(--teal);color:var(--teal);}
+  .a-opt.good{background:var(--teal);border-color:var(--teal);color:var(--cream);}
+  .a-opt.bad{background:#f6e3e0;border-color:#c0392b;color:#8f2b20;}
+  .a-score-big{font-family:var(--sans);font-weight:800;font-variation-settings:"wdth" 120;font-size:clamp(40px,4vw,64px);color:var(--teal);line-height:1;}
+  .atlas-note{
+    margin-top:clamp(28px,3.5vw,44px);font-family:var(--serif);font-style:italic;
+    font-size:clamp(19px,1.9vw,26px);line-height:1.5;color:var(--ink-soft);max-width:62ch;text-wrap:pretty;
+  }
+  @media(max-width:900px){
+    .atlas-body{grid-template-columns:1fr;}
+    .atlas-panel{border-left:0;border-top:1px solid var(--line);}
+  }
 
   /* founder quote */
   .quote-band{background:var(--cream);}
@@ -165,10 +246,10 @@
       <b>The<br /><span>Imagination</span><br />Project</b>
     </a>
     <nav class="nav-links" aria-label="Primary">
-      <a href="about.html">About</a>
-      <a href="get-involved.html">Get Involved</a>
+      <a href="about.html" data-t="nav_about">About</a>
+      <a href="get-involved.html" data-t="nav_gi">Get Involved</a>
       <div class="nav-drop">
-        <button type="button" aria-haspopup="true">Socials</button>
+        <button type="button" aria-haspopup="true" data-t="nav_soc">Socials</button>
         <div class="menu">
           <a href="https://www.linkedin.com/company/the-imagination-project-foundation" target="_blank" rel="noopener">LinkedIn <span>↗</span></a>
           <a href="https://www.instagram.com/tipthinker/" target="_blank" rel="noopener">Instagram <span>↗</span></a>
@@ -183,12 +264,12 @@
 </header>
 
 <aside class="drawer" aria-label="Menu">
-  <p class="d-label">Explore</p>
+  <p class="d-label" data-t="d_explore">Explore</p>
   <nav>
-    <a href="programs.html"><i>01</i>Programs</a>
-    <a href="impact.html"><i>02</i>Impact</a>
-    <a href="about.html"><i>03</i>About</a>
-    <a href="get-involved.html"><i>04</i>Get Involved</a>
+    <a href="programs.html"><i>01</i><span data-t="d_prog">Programs</span></a>
+    <a href="impact.html"><i>02</i><span data-t="d_imp">Impact</span></a>
+    <a href="about.html"><i>03</i><span data-t="nav_about">About</span></a>
+    <a href="get-involved.html"><i>04</i><span data-t="nav_gi">Get Involved</span></a>
   </nav>
   <div class="d-foot">
     <a href="https://www.linkedin.com/company/the-imagination-project-foundation" target="_blank" rel="noopener">LinkedIn</a>
@@ -203,15 +284,15 @@
   <canvas id="hero-gl" aria-hidden="true"></canvas>
   <img class="hero-ghost" src="assets/logo-teal.png" alt="" aria-hidden="true" />
   <div class="wrap">
-    <p class="hero-kicker">The Imagination Project · est. 2025</p>
+    <p class="hero-kicker" data-t="kicker">The Imagination Project · est. 2025</p>
     <h1 id="hero-title" aria-label="Imagine Better">Imagine Better</h1>
     <p id="hero-sub">write our future</p>
     <p id="hero-lang-note"></p>
   </div>
-  <p class="hero-mission">Depolarizing the technologically overreliant and underresourced communities across the world.</p>
-  <button class="hero-cue" type="button" aria-label="Scroll down"><span class="line"></span>Scroll</button>
+  <p class="hero-mission" data-t="mission_s">Depolarizing the technologically overreliant and underresourced communities across the world.</p>
+  <button class="hero-cue" type="button" aria-label="Scroll down"><span class="line"></span><span data-t="scroll">Scroll</span></button>
   <div class="lang-switch">
-    <p class="lang-label">Read it in</p>
+    <p class="lang-label" data-t="readin">Read it in</p>
     <div class="chips" role="group" aria-label="Choose a language">
       <button class="lang-chip on" type="button" data-lang="en">EN</button>
       <button class="lang-chip" type="button" data-lang="es">ES</button>
@@ -220,7 +301,6 @@
       <button class="lang-chip" type="button" data-lang="hi">हिंदी</button>
       <button class="lang-chip" type="button" data-lang="ar">عربي</button>
       <button class="lang-chip" type="button" data-lang="ru">RU</button>
-      <button class="lang-chip" type="button" data-lang="asl">ASL</button>
     </div>
   </div>
 </section>
@@ -229,12 +309,12 @@
 <section class="mission sec-pad" data-screen-label="Mission">
   <div class="wrap grid-2" style="align-items:start;">
     <div class="reveal">
-      <p data-ink>AI is rewriting the world in <em>one language</em>. We are a youth-led nonprofit driving <span class="gold">every person</span> to protect our education, and support those without the same resources.</p>
+      <p data-ink data-t="m_ink">AI is rewriting the world in <em>one language</em>. We are a youth-led nonprofit driving <span class="gold">every person</span> to protect our education, and support those without the same resources.</p>
     </div>
     <div class="side reveal">
-      <span class="eyebrow">What we do</span>
-      <p>The Imagination Project translates digital literacy education into the languages of underresources communities, from elementary classrooms to developing countries, and builds the research, mentorship, and programs that give young people agency over digital safety.</p>
-      <a class="btn" href="about.html">Why TIP exists <span class="arr">→</span></a>
+      <span class="eyebrow" data-t="m_what">What we do</span>
+      <p data-t="m_side">The Imagination Project translates digital literacy education into the languages of underresourced communities — from elementary classrooms to developing countries — and builds the research, mentorship, and programs that give young people agency over digital safety.</p>
+      <a class="btn" href="about.html" data-t="m_btn">Why TIP exists <span class="arr">→</span></a>
     </div>
   </div>
 </section>
@@ -251,33 +331,33 @@
 <section class="sec-pad" data-screen-label="Pillars">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="eyebrow">The work</span>
-      <h2 class="sec">How does TIP <em>enable change? </em></h2>
+      <span class="eyebrow" data-t="w_eyebrow">The work</span>
+      <h2 class="sec" data-t="w_h">How does TIP <em>enable change?</em></h2>
     </div>
     <div class="index-list reveal">
       <a class="index-row" href="get-involved.html#translate">
         <span class="no">01</span>
         <span>
-          <h3>Translate</h3>
-          <p>Students translate AI education into as many languages as possible, earning service hours while closing the digital divide for kids and communities neglected by the AI boom.</p>
+          <h3 data-t="r1_t">Translate</h3>
+          <p data-t="r1_p">Students translate AI education into as many languages as possible — earning service hours while closing the digital divide for kids and communities neglected by the AI boom.</p>
         </span>
-        <span class="tag">Active now</span>
+        <span class="tag" data-t="tag_act">Active now</span>
       </a>
       <a class="index-row" href="programs.html#index">
         <span class="no">02</span>
         <span>
-          <h3>The AI Index</h3>
-          <p>Investigative research with data scientists, building a precise index that scores how colleges use and rely on AI, designed to address the issue of AI accountability across US campuses.</p>
+          <h3 data-t="r2_t">The AI Index</h3>
+          <p data-t="r2_p">Investigative research with data scientists, building a precise index that scores how colleges use and rely on AI — designed to address the issue of AI accountability across US campuses.</p>
         </span>
-        <span class="tag soon">In development</span>
+        <span class="tag soon" data-t="tag_dev">In development</span>
       </a>
       <a class="index-row" href="programs.html#hub">
         <span class="no">03</span>
         <span>
-          <h3>The Education Hub</h3>
-          <p>Speakers, podcasts, and career-path learning to support irreplaceable human skills: featuring mentorship, multi-cultural discussion, long-term projects, and advocacy</p>
+          <h3 data-t="r3_t">The Education Hub</h3>
+          <p data-t="r3_p">Speakers, podcasts, and career-path learning to support irreplaceable human skills: featuring mentorship, multi-cultural discussion, long-term projects, and advocacy.</p>
         </span>
-        <span class="tag soon">Coming soon</span>
+        <span class="tag soon" data-t="tag_soon">Coming soon</span>
       </a>
     </div>
   </div>
@@ -286,10 +366,10 @@
 <!-- STATS -->
 <section class="stats" data-screen-label="Numbers">
   <div class="wrap" data-stagger>
-    <div class="stat reveal"><b data-count="500" data-suffix="+">500</b><span>Elementary students taught</span></div>
-    <div class="stat reveal"><b data-count="800" data-suffix="+">800</b><span>Women funded in Ahmedabad, India</span></div>
-    <div class="stat reveal"><b data-count="50" data-suffix="+">50</b><span>Our language translation goal</span></div>
-    <div class="stat reveal"><b data-count="2025">2025</b><span>Founded in Texas</span></div>
+    <div class="stat reveal"><b data-count="500" data-suffix="+">500</b><span data-t="s1">Elementary students taught</span></div>
+    <div class="stat reveal"><b data-count="800" data-suffix="+">800</b><span data-t="s2">Women funded in Ahmedabad, India</span></div>
+    <div class="stat reveal"><b data-count="50" data-suffix="+">50</b><span data-t="s3">Our language translation goal</span></div>
+    <div class="stat reveal"><b data-count="2025">2025</b><span data-t="s4">Founded in Texas</span></div>
   </div>
 </section>
 
@@ -301,29 +381,56 @@
       <div class="photo p2"><img src="assets/assembly-hero.jpg" alt="Students at a TIP assembly" /></div>
     </div>
     <div class="body">
-      <span class="eyebrow reveal">Flagship program</span>
+      <span class="eyebrow reveal" data-t="f_eyebrow">Flagship program</span>
       <h2 class="sec reveal">Dear <em>Future Leader</em></h2>
-      <p class="lead reveal">Written and delivered to more than five hundred elementary students across Texas in its first four months. Laika's curriculum to inspire interdisciplinary pursuits and service-oriented action. </p>
+      <p class="lead reveal" data-t="f_lead">Written and delivered to more than five hundred elementary students across Texas in its first four months — Laika's curriculum to inspire interdisciplinary pursuits and service-oriented action.</p>
       <ul class="reveal" data-stagger>
-        <li>The accompanying children's book funds literacy and hygiene programs for 800+ women served by Manav Sadhna in Ahmedabad, India.</li>
-        <li><a href="https://a.co/d/0hpHmaxo" target="_blank" rel="noopener noreferrer"> Bilingual edition </a> with conjugation and vocabulary charts for budding French learners</li>
-        <li>Book available for purchase on Amazon <a href="https://a.co/d/08JZg0Sb" target="_blank" rel="noopener noreferrer"> (Dear Future Leader: The Wondermaker)</a> </li>
+        <li data-t="f_b1">The accompanying children's book funds literacy and hygiene programs for 800+ women served by Manav Sadhna in Ahmedabad, India.</li>
+        <li data-t="f_b2"><b>Bilingual edition</b> — with conjugation and vocabulary charts for budding French learners.</li>
       </ul>
-      <a class="btn reveal" href="programs.html">See all programs <span class="arr">→</span></a>
+      <p class="buy-note reveal" data-t="f_note">Dear Future Leader: The Wondermaker — available on Amazon</p>
+      <div class="buy reveal">
+        <a class="btn btn-solid" href="https://a.co/d/0iXpMJhG" target="_blank" rel="noopener" data-t="f_pb">Paperback <span class="arr">→</span></a>
+        <a class="btn btn-gold" href="https://a.co/d/04j48m7E" target="_blank" rel="noopener" data-t="f_hc">Bilingual hardcover <span class="arr">→</span></a>
+      </div>
     </div>
+  </div>
+</section>
+
+<!-- ATLAS -->
+<section class="atlas sec-pad" id="atlas" data-screen-label="World atlas">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow" data-t="map_eyebrow">Global digital literacy</span>
+      <h2 class="sec" data-t="map_h">One world, <em>many futures</em></h2>
+    </div>
+    <div class="atlas-shell reveal" id="atlas-shell">
+      <div class="atlas-bar">
+        <div class="atlas-tabs">
+          <button class="a-tab on" id="tab-learn" type="button" data-t="tab_learn">Learn the world</button>
+          <button class="a-tab" id="tab-guess" type="button" data-t="tab_guess">Do you know your countries?</button>
+        </div>
+        <button class="a-fs" id="atlas-fs" type="button" data-t="g_fs">Fullscreen</button>
+      </div>
+      <div class="atlas-body">
+        <div class="atlas-map" id="atlas-map"></div>
+        <aside class="atlas-panel" id="atlas-panel"></aside>
+      </div>
+    </div>
+    <p class="atlas-note reveal" data-t="map_close">You're not expected to know every country — but that sense of global literacy is something we hope to build, so our imaginations of the future don't confine us to a single nationality, but allow us to embrace them all.</p>
   </div>
 </section>
 
 <!-- QUOTE -->
 <section class="quote-band sec-pad" data-screen-label="Founder quote">
   <div class="wrap" style="max-width:1000px;">
-    <span class="eyebrow reveal">From our founder</span>
-    <blockquote class="reveal" style="margin-top:26px;">"Depolarizing education allows us the foundation to imagine. <em>Imagination allows us to break free of existing patterns.</em>"</blockquote>
+    <span class="eyebrow reveal" data-t="q_eyebrow">From our founder</span>
+    <blockquote class="reveal" style="margin-top:26px;" data-t="q_text">"Depolarizing education allows us the foundation to imagine. <em>Imagination allows us to break free of existing patterns.</em>"</blockquote>
     <div class="who reveal">
-      <img src="assets/founder.jpg" alt="Laika Kalyani Patel" />
+      <img src="assets/laika-portrait.png" alt="Laika Kalyani Patel" />
       <div>
         <b>Laika Kalyani Patel</b>
-        <span>Founder · Yale University</span>
+        <span data-t="q_role">Founder · Yale University</span>
       </div>
     </div>
   </div>
@@ -333,10 +440,10 @@
 <section class="cta-band" data-screen-label="CTA">
   <img class="ghost" src="assets/logo-cream.png" alt="" aria-hidden="true" />
   <div class="wrap">
-    <span class="eyebrow no-rule" style="color:var(--gold);">Join us</span>
-    <h2>Imagine better, <em>with us.</em></h2>
-    <p>Join the TIP community to translate a lesson, start a chapter, lend your research, and so much more.</p>
-    <a class="btn btn-light" href="get-involved.html">Get involved <span class="arr">→</span></a>
+    <span class="eyebrow no-rule" style="color:var(--gold);" data-t="c_eyebrow">Join us</span>
+    <h2 data-t="c_h">Imagine better, <em>with us.</em></h2>
+    <p data-t="c_p">Join the TIP community to translate a lesson, start a chapter, lend your research, and so much more.</p>
+    <a class="btn btn-light" href="get-involved.html" data-t="c_btn">Get involved <span class="arr">→</span></a>
   </div>
 </section>
 
@@ -346,19 +453,19 @@
     <div class="top">
       <div class="fbrand">
         <img src="assets/logo-gold.png" alt="TIP logo" />
-        <p>Depolarizing the technologically overreliant and underresourced communities across the world.</p>
+        <p data-t="mission_s">Depolarizing the technologically overreliant and underresourced communities across the world.</p>
       </div>
       <div>
-        <h4>Explore</h4>
+        <h4 data-t="d_explore">Explore</h4>
         <ul>
-          <li><a href="about.html">About</a></li>
-          <li><a href="programs.html">Programs</a></li>
-          <li><a href="impact.html">Impact</a></li>
-          <li><a href="get-involved.html">Get Involved</a></li>
+          <li><a href="about.html" data-t="nav_about">About</a></li>
+          <li><a href="programs.html" data-t="d_prog">Programs</a></li>
+          <li><a href="impact.html" data-t="d_imp">Impact</a></li>
+          <li><a href="get-involved.html" data-t="nav_gi">Get Involved</a></li>
         </ul>
       </div>
       <div>
-        <h4>Socials</h4>
+        <h4 data-t="nav_soc">Socials</h4>
         <ul>
           <li><a href="https://www.linkedin.com/company/the-imagination-project-foundation" target="_blank" rel="noopener">LinkedIn</a></li>
           <li><a href="https://www.instagram.com/tipthinker/" target="_blank" rel="noopener">Instagram</a></li>
@@ -366,19 +473,24 @@
         </ul>
       </div>
       <div class="news">
-        <h4>Stay close</h4>
-        <p>Essays, program updates, and more - on our Substack.</p>
-        <a class="btn btn-gold" href="https://theimaginationproject.substack.com/" target="_blank" rel="noopener">Subscribe <span class="arr">→</span></a>
+        <h4 data-t="ft_stay">Stay close</h4>
+        <p data-t="ft_stayp">Essays, program updates, and more — on our Substack.</p>
+        <a class="btn btn-gold" href="https://theimaginationproject.substack.com/" target="_blank" rel="noopener" data-t="ft_sub">Subscribe <span class="arr">→</span></a>
       </div>
     </div>
     <div class="bottom">
       <span>© <span id="year">2026</span> The Imagination Project</span>
-      <span>Imagine better · write our future</span>
+      <span data-t="ft_tag">Imagine better · write our future</span>
     </div>
   </div>
 </footer>
 
+<script src="js/geodata.js"></script>
+<script src="js/i18n.js"></script>
 <script src="js/main.js"></script>
 <script src="js/hero.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
+<script src="js/worldmap.js"></script>
 </body>
 </html>
